@@ -19,6 +19,8 @@
 //= require classes/character
 //= require_tree ./classes/classes
 //= require classes/functions/character_base_creator
+//= require_tree ./game_mechanics
+//= require message_core/message_core
 //= require fight
 
 

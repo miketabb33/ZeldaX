@@ -19,7 +19,6 @@ $(document).ready(function(){
   Use switch statement for class load in
   */
   
-
     
   // Player 1 class load in
   if (player1Class === 'Mage'){
@@ -41,9 +40,9 @@ $(document).ready(function(){
     
     if (player1.characterLevel >=1){
       //attack
-      $('#player1-moves').append('<button type="button" id="attack1" class="btn btn-success mt-2 attack-actions" data-toggle="tooltip"></button>');
-      player1DamageAbilityGen($('#attack1'),player1.abilities.attack);
-      visualActionButtonDetails($('#attack1'), player1.abilities.attack);
+      // $('#player1-moves').append('<button type="button" id="attack1" class="btn btn-success mt-2 attack-actions" data-toggle="tooltip"></button>');
+      // player1DamageAbilityGen($('#attack1'),player1.abilities.attack);
+      // visualActionButtonDetails($('#attack1'), player1.abilities.attack);
       //firebolt
       $('#player1-moves').append('<button type="button" id="fire-bolt1" class="btn btn-success mt-2 attack-actions" data-toggle="tooltip"></button>');
       player1DamageAbilityGen($('#fire-bolt1'),player1.abilities.fireBoltD);
@@ -80,7 +79,7 @@ $(document).ready(function(){
         visualActionButtonDetails($('#fire-bolt2'), player2.abilities.fireBoltD); 
       } 
 
-      if(player1.characterLevel >=2){
+      if(player2.characterLevel >=2){
         $('#player2-moves').append('<button type="button" id="pyro-blast2" class="btn btn-success mt-2 attack-actions" data-toggle="tooltip"></button>');
         player2DamageAbilityGen($('#pyro-blast2'),player2.abilities.pyroBlastD);
         visualActionButtonDetails($('#pyro-blast2'), player2.abilities.pyroBlastD);
@@ -111,8 +110,8 @@ $(document).ready(function(){
           howManyActionsLeftInTurn -= 1;
           createMessage(ability.name+' success for '+ ability.damage+ ' damage', true);
           abilityAvailabilityChecker()
-          anyMorePlayer1AvailableActions();
-          actionsLeftInTurnVisualHandler(player1TotalMoveCount, $('.ability-disabled-player1'))
+          anyAvailableActions();
+          remainingActionsLeftHandler()
           ifTurnIsZero();
           endOfGameCheckerPlayer1Win();
           endOfGame(player1.characterName,player2.characterName,$('#player2-death-indicator'))
@@ -140,8 +139,8 @@ $(document).ready(function(){
           howManyActionsLeftInTurn -= 1;
           createMessage(ability.name+' success for '+ ability.damage+ ' damage', true);
           abilityAvailabilityChecker()
-          anyMorePlayer2AvailableActions();
-          actionsLeftInTurnVisualHandler(player2TotalMoveCount, $('.ability-disabled-player2'));
+          anyAvailableActions();
+          remainingActionsLeftHandler();
           ifTurnIsZero();
           endOfGameCheckerplayer2Win();
           endOfGame(player2.characterName,player1.characterName,$('#player1-death-indicator'));
@@ -176,27 +175,6 @@ $(document).ready(function(){
   }
 
   //updates end turn button when all abilities are disabled
-  function anyMorePlayer1AvailableActions(){
-    if (player1TotalMoveCount === $('.ability-disabled-player1').length){
-      $('#end-turn-button').removeClass('btn-warning');
-      $('#end-turn-button').addClass('btn-success');
-    }    
-  }
-
-  function anyMorePlayer2AvailableActions(){
-    if (player2TotalMoveCount === $('.ability-disabled-player2').length){
-      $('#end-turn-button').removeClass('btn-warning');
-      $('#end-turn-button').addClass('btn-success');
-    }    
-  }
-
-  function actionsLeftInTurnVisualHandler(playerTotalMoveCount, abilityDisabledSelector){
-    if(howManyActionsLeftInTurn === 0 || playerTotalMoveCount === abilityDisabledSelector.length){
-      $('#actions-left-in-turn').text('No ');
-    } else{
-      $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
-    }
-  }
 
   function ifTurnIsZero(){
     if(howManyActionsLeftInTurn === 0){
@@ -232,7 +210,6 @@ $(document).ready(function(){
       $('#winner-display-turn-board').html('<h1>'+winner+' has won!</h1>');
       $('#fight-again-button').show();
       clearInterval(t);
-      stopBGMusic();
     }
   }
 
@@ -279,178 +256,21 @@ function statPopoverHover(activatorSelector, infoSelector){
   )
 }
 
-//Game mechanics
-  //game state variable
-  var isGameOn = true;
-  var enoughManaPlayer1 = true;
-  var enoughManaplayer2 = true;
-
-  //Current fight variables
-  var player1RemainingHealth = player1.maxHealth;
-  var player1RemainingMana = player1.maxMana;
-  var player2RemainingHealth = player2.maxHealth;
-  var player2RemainingMana = player2.maxMana;
-
-  //init visual bars
-  visualBarUpdater($('#player1-mana-bar'), player1RemainingMana,player1.maxMana,$('#player2-health-bar'),player2RemainingHealth, player2.maxHealth);
-  visualBarUpdater($('#player2-mana-bar'), player2RemainingMana,player2.maxMana,$('#player1-health-bar'),player1RemainingHealth, player1.maxHealth);
-
-  //Turn state
-    //variables
-  const totalActionsPerTurn = 2;
-  var howManyActionsLeftInTurn = totalActionsPerTurn;
-  const totalTimePerTurn = 30;
-  var timeLeftInTurn = totalTimePerTurn;
-  var player1TotalMoveCount = $('#player1-moves > button').length;
-  var player2TotalMoveCount = $('#player2-moves > button').length;
-
-  console.log(player1.characterName+"'s available moves: "+player1TotalMoveCount);
-  console.log(player2.characterName+"'s available moves: "+player2TotalMoveCount);
-    
-//init first turn
-  var whosTurn = 'player1'; //either player1 or player2
-  initFirstTurnVisual();
-
-  function initFirstTurnVisual(){
-    $('#end-turn-timer').hide();
-    $('#whos-turn').text(player1.characterName+"'s turn");
-    $('#player2-moves').hide();
-    $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
-    $('#winner-display-turn-board').css('display','none')
-    createMessage(player1.characterName+' goes first', false);
-    createMessage('Fight!', false);
+  function anyAvailableActions(){
+    if (activePlayer === 1){
+      if (player1TotalMoveCount === $('.ability-disabled-player1').length){
+        $('#end-turn-button').removeClass('btn-warning');
+        $('#end-turn-button').addClass('btn-success');
+      }    
+    }else{
+      if (player2TotalMoveCount === $('.ability-disabled-player2').length){
+        $('#end-turn-button').removeClass('btn-warning');
+        $('#end-turn-button').addClass('btn-success');
+      }  
+    }
   }
 
-  var t;
-//Starting the fight
-$('#fight-display').hide();
-$('#start-fight-button').on('click', function(){ 
-  $('#prefight-display').hide();
-  $('#fight-display').show();
-  playBGMusic();
-  t = setInterval(function(){ 
-    timeLeftInTurn -= 1 
-    if (timeLeftInTurn === -1){
-      turnSwitcher()
-    }
-    if (timeLeftInTurn <= 10){
-      $('#end-turn-timer').show()
-      $('#end-turn-timer').text(timeLeftInTurn);
-    } 
-  }, 1000);
-});
-
-//win Count variables
-var player1WinCount = 0;
-var player2WinCount = 0;
-
-
-//End Turn
-    //end turn/switch player turn by button
-  $('#end-turn-button').on('click',function(){
-    turnSwitcher();
-  });
-
-    //end turn/switch player turn by timer
   
-
-  function turnSwitcher(){
-    if(isGameOn === true){
-      howManyActionsLeftInTurn = totalActionsPerTurn;
-      timeLeftInTurn = totalTimePerTurn;
-      $('#end-turn-timer').hide();
-      $('.attack-actions').removeClass('end-turn-disabled-abilities');
-      if (whosTurn === 'player1'){
-        whosTurn = 'player2';
-        player2ManaRegen();
-        abilityAvailabilityChecker();
-        anyMovesAvailableAtStarOfTurn(player2TotalMoveCount, $('.ability-disabled-player2'));
-        $('#whos-turn').text(player2.characterName+"'s turn")
-        $('#player1-moves').hide();
-        $('#player2-moves').show();
-        createMessage(player2.characterName+"'s turn:", false);
-        console.log('====END OF '+player1.characterName+"'s TURN====");
-      }else if (whosTurn === 'player2'){
-        whosTurn = 'player1';
-        player1ManaRegen();
-        abilityAvailabilityChecker();
-        anyMovesAvailableAtStarOfTurn(player1TotalMoveCount, $('.ability-disabled-player1'));
-        $('#whos-turn').text(player1.characterName+"'s turn");
-        $('#player2-moves').hide();
-        $('#player1-moves').show();
-        createMessage(player1.characterName+"'s turn:", false);
-        console.log("====END OF "+player2.characterName +"'s TURN====");
-      }
-    }
-  }
-
-    //mana regen
-  function player1ManaRegen(){
-    player1RemainingMana += player1.spirit;
-    if(player1RemainingMana > player1.maxMana){
-      player1RemainingMana = player1.maxMana;
-    }
-    visualBarUpdater($('#player1-mana-bar'), player1RemainingMana, player1.maxMana, $('#player2-health-bar'),player2RemainingHealth, player2.maxHealth);
-  }
-
-  function player2ManaRegen(){
-    player2RemainingMana += player2.spirit;
-    if(player2RemainingMana > player2.maxMana){
-      player2RemainingMana = player2.maxMana;
-    }
-    visualBarUpdater($('#player2-mana-bar'), player2RemainingMana, player2.maxMana, $('#player1-health-bar'),player1RemainingHealth,player1.maxHealth);
-  }
-
-  function anyMovesAvailableAtStarOfTurn(playerTotalMoveCount, abilityDisabledSelector){
-    if(playerTotalMoveCount === abilityDisabledSelector.length){
-      $('#end-turn-button').removeClass('btn-warning');
-      $('#end-turn-button').addClass('btn-success');
-    } else{
-      $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
-      $('#end-turn-button').removeClass('btn-success');
-      $('#end-turn-button').addClass('btn-warning');
-    }
-  }
-
-
-//Rematch button
-  $('#fight-again-button').hide();
-  $('#fight-again-button').on('click',function(){
-    isGameOn = true;
-    enoughManaPlayer1 = true;
-    enoughManaplayer2 = true;
-    player1RemainingHealth = player1.maxHealth;
-    player1RemainingMana = player1.maxMana;
-    player2RemainingHealth = player2.maxHealth;
-    player2RemainingMana = player2.maxMana;
-    howManyActionsLeftInTurn = totalActionsPerTurn;
-    timeLeftInTurn = totalTimePerTurn;
-    visualBarUpdater($('#player1-mana-bar'), player1RemainingMana,player1.maxMana,$('#player2-health-bar'),player2RemainingHealth, player2.maxHealth);
-    visualBarUpdater($('#player2-mana-bar'), player2RemainingMana,player2.maxMana,$('#player1-health-bar'),player1RemainingHealth, player1.maxHealth);
-    
-    resetGame();
-    initFirstTurnVisual();
-    $('#fight-again-button').hide();
-  });
-
-  function resetGame(){
-    resetMessageBoard();
-    $('#fight-display').hide();
-    $('#prefight-display').show();
-    $('#player1-win-count').text(player1WinCount);
-    $('#player2-win-count').text(player2WinCount);
-    $('.attack-actions').removeClass('disabled');
-    $('.attack-actions').removeClass('ability-disabled-player1');
-    $('.attack-actions').removeClass('end-turn-disabled-abilities');
-    $('end-turn-button').removeClass('btn-success');
-    $('.attack-actions').addClass('btn-success');
-    $('end-turn-button').addClass('btn-warning');
-    $('#player2-death-indicator').hide();
-    $('#player1-death-indicator').hide();
-    $('#turn-board-controls').show();
-    $('#player1-moves').show();
-    $('#player2-moves').show();
-  }
 
   //win count
    function winCounter(winner){
@@ -462,6 +282,22 @@ var player2WinCount = 0;
    } 
 
 //global functions
+
+function remainingActionsLeftHandler(){
+    if (activePlayer === 1){
+      if(howManyActionsLeftInTurn === 0 || player1TotalMoveCount === $('.ability-disabled-player1').length){
+        $('#actions-left-in-turn').text('No ');
+      } else{
+        $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
+      }
+    }else{
+      if(howManyActionsLeftInTurn === 0 || player2TotalMoveCount === $('.ability-disabled-player2').length){
+        $('#actions-left-in-turn').text('No ');
+      } else{
+        $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
+      }
+    }
+  }
 
   function abilityAvailabilityChecker(){
     //player1
@@ -497,41 +333,7 @@ var player2WinCount = 0;
     attackerManaBar.text(attackerRemainingMana+'/'+attackerTotalMana);
     receiverHealthBar.css('width', percentageHealth+'%');
     receiverHealthBar.text(receiverRemainingHealth+'/'+receiverTotalHealth);
-    console.log('percentage health: '+percentageHealth);
-    console.log('remaining health: '+receiverRemainingHealth);
-  }
+  }  
 
-//Combat message box
-  function createMessage(msg,playerAction){
-    if(whosTurn === 'player1' && playerAction === true){
-      document.getElementById('combat-message').innerHTML += '<div class="player1-message">' +msg + '</div>';
-      autoScrollToBottom()
-    } else if(whosTurn === 'player2' && playerAction === true){
-      document.getElementById('combat-message').innerHTML += '<div class="player2-message">' +msg + '</div>';
-      autoScrollToBottom()
-    } else{
-    document.getElementById('combat-message').innerHTML += '<div>'+msg+'</div>';
-    autoScrollToBottom()
-    }
-  }
-
-  function resetMessageBoard(){
-    document.getElementById('combat-message').innerHTML = '';
-  }
-     
-  function autoScrollToBottom(){
-    $('#combat-message').animate({
-      scrollTop: $('#combat-message').get(0).scrollHeight
-    }, 1);
-  }           
-
-  //Sound
-  function playBGMusic(){
-    // $('#fighting-background-music')[0].play();
-  }
-
-  function stopBGMusic(){
-    // $('#fighting-background-music')[0].pause();
-  }
 
 });
