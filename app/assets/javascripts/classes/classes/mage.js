@@ -12,7 +12,6 @@ Mage.abilities = {
   attack:{
     name: 'Attack',
     manaCost: 0,
-    damage: 3
   },
   fireBoltD:{
     name: 'Fire Bolt',

@@ -22,13 +22,13 @@ function playerManaRegen(){
     if(player1RemainingMana > player1.maxMana){
       player1RemainingMana = player1.maxMana;
     }
-    visualBarUpdater($('#player1-mana-bar'), player1RemainingMana, player1.maxMana, $('#player2-health-bar'),player2RemainingHealth, player2.maxHealth);
+    manaBarUpdater($('#player1-mana-bar'), player1RemainingMana, player1.maxMana);
   }else{
     player2RemainingMana += player2.spirit;
     if(player2RemainingMana > player2.maxMana){
       player2RemainingMana = player2.maxMana;
     }
-    visualBarUpdater($('#player2-mana-bar'), player2RemainingMana, player2.maxMana, $('#player1-health-bar'),player1RemainingHealth,player1.maxHealth);
+    manaBarUpdater($('#player2-mana-bar'), player2RemainingMana, player2.maxMana);
   }
 }
 

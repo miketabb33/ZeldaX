@@ -14,13 +14,18 @@
 //= require activestorage
 //= require turbolinks
 //= require player_stats/player1_equipped
+//= require player_stats/player2_equipped
 //= require player_stats/player1_attributes
 //= require player_stats/player2_attributes
 //= require classes/character
 //= require_tree ./classes/classes
 //= require classes/functions/character_base_creator
+//= require_tree ./character_loadin
+//= require_tree ./actions
 //= require_tree ./game_mechanics
 //= require message_core/message_core
-//= require fight
+//= require_tree ./helpers
+
+
 
 

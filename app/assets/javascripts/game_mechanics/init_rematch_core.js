@@ -30,8 +30,10 @@ function initFightVisual(){
   $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
   $('#winner-display-turn-board').css('display','none')
   $('#fight-again-button').hide();
-  visualBarUpdater($('#player1-mana-bar'), player1RemainingMana,player1.maxMana,$('#player2-health-bar'),player2RemainingHealth, player2.maxHealth);
-  visualBarUpdater($('#player2-mana-bar'), player2RemainingMana,player2.maxMana,$('#player1-health-bar'),player1RemainingHealth, player1.maxHealth);
+  healthBarUpdater($('#player2-health-bar'),player2RemainingHealth, player2.maxHealth);
+  healthBarUpdater($('#player1-health-bar'),player1RemainingHealth, player1.maxHealth);
+  manaBarUpdater($('#player1-mana-bar'), player1RemainingMana,player1.maxMana);
+  manaBarUpdater($('#player2-mana-bar'), player2RemainingMana,player2.maxMana);
   createMessage(player1.characterName+' goes first', false);
   createMessage('Fight!', false);
 }
