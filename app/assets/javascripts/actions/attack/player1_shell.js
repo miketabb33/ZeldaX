@@ -3,8 +3,12 @@ function player1DamageAbilityGen(button,ability){
     if(isGameOn === true && howManyActionsLeftInTurn > 0){
     enoughManaPlayer1Checker(ability,player1RemainingMana);
       if(enoughManaPlayer1 === true) {
-        var aggregateDamage = criticalHit(player1.crit,ability,ability.damage);
-        player2RemainingHealth -= aggregateDamage
+        var aggregateDamage =ability.damage;
+        aggregateDamage = attackPowerSpellPower(aggregateDamage,player1,ability)
+        aggregateDamage = damageAfterArmor(aggregateDamage,player2)
+        var blocked = blockAttack(player1.block, ability)
+        blocked ? aggregateDamage = 0 : aggregateDamage = criticalHit(player1.crit,ability,aggregateDamage)
+        player2RemainingHealth -= aggregateDamage;
         player1RemainingMana -= ability.manaCost;
         howManyActionsLeftInTurn -= 1;
         abilityAvailabilityChecker()
@@ -26,7 +30,10 @@ function player1BasicDamageAbilityGen(button,ability){
     if(isGameOn === true && howManyActionsLeftInTurn > 0){
       enoughManaPlayer1Checker(ability,player1RemainingMana);
       if(enoughManaPlayer1 === true) {
-        var aggregateDamage = criticalHit(player1.crit,ability,baseDamage)
+        var aggregateDamage = baseDamage
+        aggregateDamage = damageAfterArmor(aggregateDamage,player2)
+        var blocked = blockAttack(player1.block, ability)
+        blocked ? aggregateDamage = 0 : aggregateDamage = criticalHit(player1.crit,ability,aggregateDamage)
         player2RemainingHealth -= aggregateDamage;
         howManyActionsLeftInTurn -= 1;
         abilityAvailabilityChecker()

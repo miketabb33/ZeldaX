@@ -10,7 +10,7 @@ var player1HeadArmor = {
   crit: 0,
   attackPower: 0,
   spellPower: 0,
-  armor: 3,
+  armor: 100,
   block: 0,
   spirit: 2
 };
@@ -24,7 +24,7 @@ var player1ShoulderArmor = {
   crit: 0,
   attackPower: 0,
   spellPower: 0,
-  armor: 7,
+  armor: 60,
   block: 0,
   spirit: 1
 };
@@ -105,7 +105,7 @@ var player1BootsArmor = {
   strength: 0,
   agility: 0,
   intellect: 1,
-  crit: 0,
+  crit: 2,
   attackPower: 0,
   spellPower: 0,
   armor: 7,
@@ -114,7 +114,7 @@ var player1BootsArmor = {
 }
 var player1PrimaryWeapon = {
   name: "wand",
-  damage: [5,8]
+  damage: [3,6]
 }
 
 var player1TotlaEquippedStats = {

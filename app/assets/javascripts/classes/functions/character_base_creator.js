@@ -30,8 +30,8 @@ function characterBase(player,playerName,playerAvatarPhoto,playerLevel,playerBas
   player.strengthMultiplyer = player.strength*1.1;
   player.agilityMultiplyer = player.agility*1.2;
   player.intellectMultiplyer = player.intellect*1.2;
-  player.attackPower = player.strengthMultiplyer + player.agilityMultiplyer + player.equippedWeaponDamage;
-  player.spellPower = player.equippedSpellPower+ player.intellectMultiplyer;
+  player.attackPower = Math.ceil(player.strengthMultiplyer + player.agilityMultiplyer + player.equippedAttackPower)
+  player.spellPower = Math.ceil(player.equippedSpellPower+ player.intellectMultiplyer)
   player.block = player.baseBlock + player.equippedBlock;
   player.crit = player.baseCrit+ player.equippedCrit;
   player.maxHealth = Math.round(player.baseHealth +player.staminaMultiplyer);

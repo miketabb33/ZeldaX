@@ -1,20 +1,20 @@
-var player1Name = 'Tylenol';
+var player1Name = 'Arcano';
 var player1Race = 'Human';
 var player1Class = 'Mage';
 var player1AvatarPhoto = 'mage.jpg';
 
-var player1Level = 1;
+var player1Level = 2;
 var player1TotalExperiance = 0;
 
 var player1BaseHealth = 100;
-var player1MaxMana = 140;
+var player1MaxMana = 100;
 
 var player1BaseStamina = 2;
-var player1BaseStrength = 0;
-var player1BaseAgility = 0;
-var player1BaseIntellect = 1;
+var player1BaseStrength = 2;
+var player1BaseAgility = 30;
+var player1BaseIntellect = 80;
 var player1BaseCrit = 5;
-var player1BaseBlock = 0;
+var player1BaseBlock = 5;
 
 var player1EquippedStamina = player1TotlaEquippedStats.stamina;
 var player1EquippedStrength = player1TotlaEquippedStats.strength;

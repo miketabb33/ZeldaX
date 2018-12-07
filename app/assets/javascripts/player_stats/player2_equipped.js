@@ -10,7 +10,7 @@ var player2HeadArmor = {
   crit: 0,
   attackPower: 0,
   spellPower: 0,
-  armor: 3,
+  armor: 300,
   block: 0,
   spirit: 2
 };
@@ -108,13 +108,13 @@ var player2BootsArmor = {
   crit: 0,
   attackPower: 0,
   spellPower: 0,
-  armor: 7,
+  armor: 10,
   block: 0,
   spirit: 0
 }
 var player2PrimaryWeapon = {
   name: "wand",
-  damage: [1,3]
+  damage: [3,8]
 }
 
 var player2TotlaEquippedStats = {

@@ -82,13 +82,50 @@ function getRandomArbitrary(min, max) {
 
 function criticalHit(crit, ability, damage){
   var num = Math.floor(Math.random() *100+1)
-  console.log('roll: '+num)
-  console.log('crit chance: '+crit)
   if (num <= crit){
-    createMessage(ability.name+' critical hit for '+ damage * 2+ ' damage', true);
-    return damage * 2
+    createMessage(ability.name+' critical hit for '+ (damage * 2)+ ' damage', true);
+    return (damage * 2)
   } else{
     createMessage(ability.name+' success for '+ damage+ ' damage', true);
     return damage
   }
 }
+
+function blockAttack(block, ability){
+  var num = Math.floor(Math.random() *100+1)
+  if (num <= block){
+    createMessage(ability.name+' blocked', true);
+    return true;
+  } else{
+    return false;
+  }
+}
+
+function damageAfterArmor(damage, player){
+  var num = Math.ceil(damage * (1-(player.equippedArmor*0.0005)))
+  if(num <=0){
+    return 0;
+  } else{
+    return num
+  }
+}
+
+function attackPowerSpellPower(damage, player, ability){
+  if(ability.type === "spell"){
+    var num = Math.ceil(damage * (1+(player.spellPower*0.0005)))
+    return num
+  } else if((ability.type === "melee")){
+    var num = Math.ceil(damage * (1+(player.attackPower*0.0005)))
+    return num
+  }else{
+    return damage
+  }
+}
+
+
+
+
+
+
+
+

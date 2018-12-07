@@ -1,12 +1,11 @@
 function statPopoverLoadin(headerID,bodyID,player){    
   headerID.html(player.characterName +"'s Stats");
-  bodyID.html('Stamina: '+player.stamina+'<br>'
-             +'Strength: '+player.strength+'<br>'
-             +'Agility: '+player.agility+'<br>'
-             +'Intellect: '+player.intellect+'<br>'
-             +'-Critical: '+player.crit+'%<br>'
-             +'-Armor: '+player.equippedArmor+'<br>'
-             +'-Spirit: '+ player.spirit)
+  bodyID.html('Critical: '+player.crit+'%<br>'
+             +'Block: '+player.block+'%<br>'
+             +'Attack Power: '+player.attackPower+'<br>'
+             +'Spell Power: '+player.spellPower+'<br>' 
+             +'Armor: '+player.equippedArmor+'<br>'
+             +'Spirit: '+ player.spirit)
 }
 
 function statPopoverHover(activatorSelector, infoSelector){
@@ -20,7 +19,7 @@ function statPopoverHover(activatorSelector, infoSelector){
 }
 
 function visualActionButtonDetails(button, ability){
-  button.tooltip({title: ability.damage+ " damage | "+ability.manaCost  +" mana", placement: "right"}); 
+  button.tooltip({title: ability.damage+ " damage | "+ability.manaCost  +" mana Type: "+ ability.type, placement: "right"}); 
   button.text(ability.name);
 }
 
