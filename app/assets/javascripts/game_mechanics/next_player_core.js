@@ -1,7 +1,9 @@
 function nextPlayer(){
   if(isGameOn === true){
     $('#player'+activePlayer+'-moves').hide();
+    $('.player'+activePlayer+'-card').removeClass('active-player')
     activePlayer === 1 ? activePlayer =2 : activePlayer = 1;
+    $('.player'+activePlayer+'-card').addClass('active-player')
     howManyActionsLeftInTurn = totalActionsPerTurn;
     timeLeftInTurn = totalTimePerTurn;
     $('#end-turn-timer').hide();

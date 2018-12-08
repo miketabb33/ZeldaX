@@ -22,6 +22,7 @@ function initFight(){
 }
 
 function initFightVisual(){
+  $('.player'+activePlayer+'-card').addClass('active-player')
   $('#prefight-display').hide();
   $('#fight-display').show();
   $('#end-turn-timer').hide();
@@ -63,6 +64,7 @@ function timerStart(){
 }
 
 function resetGame(){
+  $('.player'+activePlayer+'-card').removeClass('active-player')
   $('#fight-display').hide();
   $('#prefight-display').show();
   $('#player1-win-count').text(player1WinCount);
