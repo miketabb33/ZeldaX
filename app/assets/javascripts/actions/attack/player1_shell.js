@@ -3,7 +3,8 @@ function player1DamageAbilityGen(button,ability){
     if(isGameOn === true && howManyActionsLeftInTurn > 0){
     enoughManaPlayer1Checker(ability,player1RemainingMana);
       if(enoughManaPlayer1 === true) {
-        var aggregateDamage =ability.damage;
+        baseDamage = getRandomArbitrary(ability.damage[0],ability.damage[1]);
+        var aggregateDamage =baseDamage;
         aggregateDamage = attackPowerSpellPower(aggregateDamage,player1,ability)
         aggregateDamage = damageAfterArmor(aggregateDamage,player2)
         var blocked = blockAttack(player1.block, ability)
@@ -26,10 +27,10 @@ function player1DamageAbilityGen(button,ability){
 
 function player1BasicDamageAbilityGen(button,ability){
   button.click(function(){
-    baseDamage = getRandomArbitrary(player1EquippedWeaponDamage[0],player1EquippedWeaponDamage[1]);
     if(isGameOn === true && howManyActionsLeftInTurn > 0){
       enoughManaPlayer1Checker(ability,player1RemainingMana);
       if(enoughManaPlayer1 === true) {
+        baseDamage = getRandomArbitrary(player1EquippedWeaponDamage[0],player1EquippedWeaponDamage[1]);
         var aggregateDamage = baseDamage
         aggregateDamage = damageAfterArmor(aggregateDamage,player2)
         var blocked = blockAttack(player1.block, ability)

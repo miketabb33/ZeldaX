@@ -1,4 +1,4 @@
-var player1Name = 'Arcano';
+var player1Name = 'Zeus';
 var player1Race = 'Human';
 var player1Class = 'Mage';
 var player1AvatarPhoto = 'mage.jpg';
@@ -7,7 +7,7 @@ var player1Level = 2;
 var player1TotalExperiance = 0;
 
 var player1BaseHealth = 100;
-var player1MaxMana = 100;
+var player1MaxMana = 140;
 
 var player1BaseStamina = 2;
 var player1BaseStrength = 2;

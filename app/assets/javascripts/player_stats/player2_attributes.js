@@ -7,11 +7,11 @@ var player2Level = 2;
 var player2TotalExperiance = 0;
 
 var player2BaseHealth = 100;
-var player2MaxMana = 100;
+var player2MaxMana = 140;
 
 var player2BaseStamina = 4;
 var player2BaseStrength = 4;
-var player2BaseAgility = 250;
+var player2BaseAgility = 50;
 var player2BaseIntellect = 2;
 var player2BaseCrit = 5;
 var player2BaseBlock = 5;

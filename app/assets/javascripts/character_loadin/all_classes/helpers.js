@@ -19,7 +19,7 @@ function statPopoverHover(activatorSelector, infoSelector){
 }
 
 function visualActionButtonDetails(button, ability){
-  button.tooltip({title: ability.damage+ " damage | "+ability.manaCost  +" mana Type: "+ ability.type, placement: "right"}); 
+  button.tooltip({title: ability.displayDamage+ " damage | "+ability.manaCost  +" mana Type: "+ ability.type, placement: "right"}); 
   button.text(ability.name);
 }
 

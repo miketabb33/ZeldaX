@@ -17,12 +17,14 @@ Mage.abilities = {
     type: 'spell',
     name: 'Fire Bolt',
     manaCost: 15,
-    damage: 9
+    damage: [7,11],
+    displayDamage: 9
   },
   pyroBlastD: {
     type: 'melee',
     name: 'Ice Punch',
     manaCost: 45,
-    damage: 45
+    damage: [30,36],
+    displayDamage: 33
   }
 }

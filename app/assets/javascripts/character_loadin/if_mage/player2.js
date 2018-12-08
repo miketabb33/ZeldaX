@@ -34,6 +34,9 @@ if (player2Class === 'Mage'){
       visualActionButtonDetails($('#pyro-blast2'), player2.abilities.pyroBlastD);
     }
   })
+
+  ifHumanRace(player2, player2Race)
+  ifOrcRace(player2, player2Race)
 }
 
 
