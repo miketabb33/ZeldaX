@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require player_stats/base_stats
 //= require player_stats/player1_equipped
 //= require player_stats/player2_equipped
 //= require player_stats/player1_attributes

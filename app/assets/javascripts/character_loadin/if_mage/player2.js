@@ -1,17 +1,14 @@
 if (player2Class === 'Mage'){
   var player2 =Object.create(Mage);
 
-  characterBase(player2,player2Name,player2AvatarPhoto,player2Level,
+  characterBase(player2,player2Name,player2Race,player2AvatarPhoto,player2Level,
                          player2BaseHealth,player2MaxMana,player2BaseStamina,
                          player2EquippedStamina,player2BaseStrength,player2EquippedStrength,
                          player2BaseAgility,player2EquippedAgility,player2BaseIntellect,
-                         player2EquippedIntellect,player2BaseCrit,player2EquippedCrit,
+                         player2EquippedIntellect, player2BaseSpirit, player2EquippedSpirit, player2BaseCrit,player2EquippedCrit,
                          player2EquippedAttackPower,player2EquippedSpellPower,
                          player2EquippedWeaponDamage,player2EquippedArmor,player2BaseBlock,
                          player2EquippedBlock)
-
-  player2.equippedSpirit = player2TotlaEquippedStats.spirit;
-  player2.spirit = player2.baseSpirit + player2.equippedSpirit;
 
   $(document).ready(function(){
     player2.actionBar($('#player2-action-bar'),'player2-mana-bar');
@@ -33,10 +30,10 @@ if (player2Class === 'Mage'){
       player2DamageAbilityGen($('#pyro-blast2'),player2.abilities.pyroBlastD);
       visualActionButtonDetails($('#pyro-blast2'), player2.abilities.pyroBlastD);
     }
+    //ifHumanRaceActionLoadIn(player2, player2Race)
+    
   })
-
-  ifHumanRace(player2, player2Race)
-  ifOrcRace(player2, player2Race)
+  ifOrcRaceActionLoadIn(player2, player2Race)
 }
 
 

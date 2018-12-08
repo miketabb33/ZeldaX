@@ -7,3 +7,4 @@ $(document).ready(function(){
   $('#player1-stat-info-popover').hide();
   statPopoverHover($('#player1-stat-info-activator'), $('#player1-stat-info-popover'))
 })
+

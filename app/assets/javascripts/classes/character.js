@@ -2,6 +2,9 @@ var Character = {
   characterName: function(characterName) {
     this.characterName = characterName;
   },
+  characterRace: function(characterRace) {
+    this.characterRace = characterRace;
+  },
   characterAvatarPhoto: function(characterAvatarPhoto){
     this.characterAvatarPhoto = characterAvatarPhoto;
   },
@@ -37,6 +40,12 @@ var Character = {
   },
   equippedIntellect: function(equippedIntellect){
     this.equippedIntellect = equippedIntellect;
+  },
+  baseSpirit: function(baseSpirit){
+    this.baseSpirit = baseSpirit;
+  },
+  equippedSpirit: function(equippedSpirit){
+    this.equippedSpirit = equippedSpirit;
   },
   baseCrit: function(baseCrit){
     this.baseCrit = baseCrit;

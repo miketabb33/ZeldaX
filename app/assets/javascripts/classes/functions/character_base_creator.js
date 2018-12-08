@@ -1,5 +1,11 @@
-function characterBase(player,playerName,playerAvatarPhoto,playerLevel,playerBaseHealth,playerMaxMana,playerBaseStamina,playerEquippedStamina,playerBaseStrength,playerEquippedStrength,playerBaseAgility,playerEquippedAgility,playerBaseIntellect,playerEquippedIntellect,playerBaseCrit,playerEquippedCrit,playerEquippedAttackPower,playerEquippedSpellPower,playerEquippedWeaponDamage,playerEquippedArmor,playerBaseBlock,playerEquippedBlock){
+function characterBase(player,playerName,playerRace,playerAvatarPhoto,playerLevel,playerBaseHealth,
+                       playerMaxMana,playerBaseStamina,playerEquippedStamina,playerBaseStrength,
+                       playerEquippedStrength,playerBaseAgility,playerEquippedAgility,playerBaseIntellect,
+                       playerEquippedIntellect,playerBaseSpirit,playerEquippedSpirit,playerBaseCrit,playerEquippedCrit,playerEquippedAttackPower,
+                       playerEquippedSpellPower,playerEquippedWeaponDamage,playerEquippedArmor,playerBaseBlock,
+                       playerEquippedBlock){
   player.characterName(playerName);
+  player.characterRace(playerRace);
   player.characterAvatarPhoto(playerAvatarPhoto);
   player.characterLevel(playerLevel);
   player.baseHealth(playerBaseHealth);
@@ -12,6 +18,8 @@ function characterBase(player,playerName,playerAvatarPhoto,playerLevel,playerBas
   player.equippedAgility(playerEquippedAgility);
   player.baseIntellect(playerBaseIntellect);
   player.equippedIntellect(playerEquippedIntellect);
+  player.baseSpirit(playerBaseSpirit);
+  player.equippedSpirit(playerEquippedSpirit);
   player.baseCrit(playerBaseCrit);
   player.equippedCrit(playerEquippedCrit);
   player.equippedAttackPower(playerEquippedAttackPower);
@@ -25,6 +33,8 @@ function characterBase(player,playerName,playerAvatarPhoto,playerLevel,playerBas
   player.strength = player.baseStrength + player.equippedStrength;
   player.agility = player.baseAgility + player.equippedAgility;
   player.intellect = player.baseIntellect+ player.equippedIntellect;
+  player.spirit = player.baseSpirit+ player.equippedSpirit;
+
   //other derived attr.
   player.staminaMultiplyer = player.stamina *5.7;
   player.strengthMultiplyer = player.strength*1.1;

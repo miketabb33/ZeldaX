@@ -8,6 +8,10 @@
 body{
   background-image: url("background.jpg");
 }
+
+#uppermost-container{
+  margin-top: 68px;
+}
 /*header*/
 header{
   font-size: 2em;
@@ -35,7 +39,6 @@ header{
   position:absolute;
   right:15px;
   bottom:55px;
-
 }
 
 /*message box*/
@@ -74,13 +77,13 @@ header{
 
 @-webkit-keyframes example {
   0%   {background-color:#e0f0ff;}
-  50%  {background-color:#dddff9;}
+  50%  {background-color:#ebf6ff;}
   100% {background-color:#e0f0ff;}
 }
 
 .active-player{
   -webkit-animation-name: example; 
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }

@@ -1,7 +1,6 @@
 var Mage =Object.create(Character);
 
 Mage.characterClass = 'Mage';
-Mage.baseSpirit = 12;
 Mage.actionBar = function(playerBarID, playerBarType) {
   playerBarID.html('Mana:'+
   '<div class="progress">'+
