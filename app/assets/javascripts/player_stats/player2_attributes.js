@@ -3,7 +3,7 @@ var player2Race = 'Orc';
 var player2Class = 'Mage';
 var player2AvatarPhoto = 'images/warrior.png';
 
-var player2Level = 1;
+var player2Level = 2;
 var player2TotalExperiance = 0;
 
 var player2BaseHealth = 40;

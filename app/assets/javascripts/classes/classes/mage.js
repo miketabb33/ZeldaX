@@ -9,6 +9,7 @@ Mage.actionBar = function(playerBarID, playerBarType) {
 };
 Mage.abilities = {
   attack:{
+    type: 'melee',
     name: 'Attack',
     manaCost: 0,
   },
@@ -17,13 +18,11 @@ Mage.abilities = {
     name: 'Fire Bolt',
     manaCost: 15,
     damage: [7,11],
-    displayDamage: 9
   },
   pyroBlastD: {
     type: 'melee',
     name: 'Ice Punch',
     manaCost: 45,
-    damage: [30,36],
-    displayDamage: 33
+    damage: [9,13],
   }
 }

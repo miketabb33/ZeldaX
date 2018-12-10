@@ -3,7 +3,7 @@ var player1Race = 'Human';
 var player1Class = 'Mage';
 var player1AvatarPhoto = 'mage.jpg';
 
-var player1Level = 1;
+var player1Level = 2;
 var player1TotalExperiance = 0;
 
 var player1BaseHealth = 40;
@@ -29,5 +29,3 @@ var player1EquippedSpirit = player1TotalEquippedStats.spirit;
 
 ifHumanBaseStatsPlayer1()
 ifOrcBaseStatsPlayer1()
-
-    

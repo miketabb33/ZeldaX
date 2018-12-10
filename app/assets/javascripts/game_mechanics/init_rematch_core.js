@@ -1,18 +1,16 @@
-var isGameOn, enoughManaPlayer1, enoughManaplayer2, player1RemainingHealth, 
-player1RemainingMana, player2RemainingHealth, player2RemainingMana,
-totalActionsPerTurn, howManyActionsLeftInTurn, totalTimePerTurn, timeLeftInTurn,
-player1TotalMoveCount, player2TotalMoveCount, t, player1WinCount, player2WinCount,
-activePlayer;
+var isGameOn, totalActionsPerTurn, howManyActionsLeftInTurn, totalTimePerTurn, 
+timeLeftInTurn, player1TotalMoveCount, player2TotalMoveCount, t, player1WinCount, 
+player2WinCount, activePlayer;
 
 function initFight(){
   isGameOn = true;
-  enoughManaPlayer1 = true;
-  enoughManaplayer2 = true;
   activePlayer = 1;
-  player1RemainingHealth = player1.maxHealth;
-  player1RemainingMana = player1.maxMana;
-  player2RemainingHealth = player2.maxHealth;
-  player2RemainingMana = player2.maxMana;
+  player1.enoughMana = true;
+  player2.enoughMana = true;
+  player1.remainingHealth = player1.maxHealth;
+  player1.remainingMana = player1.maxMana;
+  player2.remainingHealth = player2.maxHealth;
+  player2.remainingMana = player2.maxMana;
   totalActionsPerTurn = 2;
   howManyActionsLeftInTurn = totalActionsPerTurn;
   totalTimePerTurn = 30;
@@ -22,6 +20,7 @@ function initFight(){
 }
 
 function initFightVisual(){
+  $('#player'+activePlayer+'-turn-arrow').show()
   $('.player'+activePlayer+'-card').addClass('active-player')
   $('#prefight-display').hide();
   $('#fight-display').show();
@@ -31,10 +30,11 @@ function initFightVisual(){
   $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
   $('#winner-display-turn-board').css('display','none')
   $('#fight-again-button').hide();
-  healthBarUpdater($('#player2-health-bar'),player2RemainingHealth, player2.maxHealth);
-  healthBarUpdater($('#player1-health-bar'),player1RemainingHealth, player1.maxHealth);
-  manaBarUpdater($('#player1-mana-bar'), player1RemainingMana,player1.maxMana);
-  manaBarUpdater($('#player2-mana-bar'), player2RemainingMana,player2.maxMana);
+  $('.player2-avatar-photo').addClass('gray-photo')
+  healthBarUpdater($('#player2-health-bar'),player2.remainingHealth, player2.maxHealth);
+  healthBarUpdater($('#player1-health-bar'),player1.remainingHealth, player1.maxHealth);
+  manaBarUpdater($('#player1-mana-bar'), player1.remainingMana,player1.maxMana);
+  manaBarUpdater($('#player2-mana-bar'), player2.remainingMana,player2.maxMana);
   createMessage(player1.characterName+' goes first', false);
   createMessage('Fight!', false);
 }
@@ -64,6 +64,8 @@ function timerStart(){
 }
 
 function resetGame(){
+  $('#player1-turn-arrow').hide()
+  $('#player2-turn-arrow').hide()
   $('.player'+activePlayer+'-card').removeClass('active-player')
   $('#fight-display').hide();
   $('#prefight-display').show();
@@ -80,4 +82,8 @@ function resetGame(){
   $('#turn-board-controls').show();
   $('#player1-moves').show();
   $('#player2-moves').show();
-  }
+  $('.player1-avatar-photo').removeClass('gray-photo')
+  $('.player2-avatar-photo').removeClass('gray-photo')
+}
+
+

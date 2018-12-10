@@ -1,18 +1,18 @@
-function enoughManaPlayer1Checker(ability, remainingMana){
+function enoughManaChecker(ability, remainingMana, attckingPlayer){
   if(remainingMana < ability.manaCost){
-    enoughManaPlayer1 = false;
+    attckingPlayer.enoughMana = false;
     createMessage('Not enough mana', false);
   } else{
-    enoughManaPlayer1 = true;
+    attckingPlayer.enoughMana = true;
   }
 }
 
 function enoughManaplayer2Checker(ability, remainingMana){
   if(remainingMana < ability.manaCost){
-    enoughManaplayer2 = false;
+    player2.enoughMana = false;
     createMessage('Not enough mana', false);
   }else{
-    enoughManaplayer2 = true;
+    player2.enoughMana = true;
   }
 
 }
@@ -25,24 +25,24 @@ function ifTurnIsZero(){
   }
 }
 
-function endOfGameCheckerPlayer1Win(){
-  if (player2RemainingHealth <= 0){
-    player2RemainingHealth = 0;
+function endOfGameChecker(receivingPlayer){
+  if (receivingPlayer.remainingHealth <= 0){
+    receivingPlayer.remainingHealth = 0;
     isGameOn = false;
   }
 }
 
 function endOfGameCheckerplayer2Win(){
-  if (player1RemainingHealth <= 0){
-    player1RemainingHealth = 0;
+  if (player1.remainingHealth <= 0){
+    player1.remainingHealth = 0;
     isGameOn = false;
   }
 }
 
-function endOfGame(winner, loser, loserSelector){
+function endOfGame(winner, loser, loserID){
   if (isGameOn === false){
     winCounter(winner);
-    loserSelector.css('visibility', 'visible');
+    loserID.css('visibility', 'visible');
     $('.attack-actions').addClass('disabled');
     createMessage(loser+' has died', false);
     createMessage(winner+ ' has won!', false);
@@ -110,17 +110,17 @@ function damageAfterArmor(damage, player){
   }
 }
 
-function attackPowerSpellPower(damage, player, ability){
-  if(ability.type === "spell"){
-    var num = Math.ceil(damage * (1+(player.spellPower*0.0005)))
-    return num
-  } else if((ability.type === "melee")){
-    var num = Math.ceil(damage * (1+(player.attackPower*0.0005)))
-    return num
-  }else{
-    return damage
-  }
-}
+// function attackPowerSpellPower(damage, player, ability){
+//   if(ability.type === "spell"){
+//     var num = Math.ceil(damage * (1+(player.spellPower*0.0005)))
+//     return num
+//   } else if((ability.type === "melee")){
+//     var num = Math.ceil(damage * (1+(player.attackPower*0.0005)))
+//     return num
+//   }else{
+//     return damage
+//   }
+// }
 
 
 

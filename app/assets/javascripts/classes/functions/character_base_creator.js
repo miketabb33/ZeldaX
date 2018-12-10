@@ -36,13 +36,18 @@ function characterBase(player,playerName,playerRace,playerAvatarPhoto,playerLeve
   player.spirit = player.baseSpirit+ player.equippedSpirit;
 
   //other derived attr.
-  player.staminaMultiplyer = player.stamina *5.7;
-  player.strengthMultiplyer = player.strength*1.1;
-  player.agilityMultiplyer = player.agility*1.2;
-  player.intellectMultiplyer = player.intellect*1.2;
+  player.staminaMultiplyer = player.stamina *0.6;
+  player.strengthMultiplyer = player.strength*0.2;
+  player.agilityMultiplyer = player.agility*0.3;
+  player.intellectMultiplyer = player.intellect*0.5;
   player.attackPower = Math.ceil(player.strengthMultiplyer + player.agilityMultiplyer + player.equippedAttackPower)
   player.spellPower = Math.ceil(player.equippedSpellPower+ player.intellectMultiplyer)
   player.block = player.baseBlock + player.equippedBlock;
   player.crit = player.baseCrit+ player.equippedCrit;
   player.maxHealth = Math.round(player.baseHealth +player.staminaMultiplyer);
+
+  //attackPower and spell power multiplyers
+  player.attackPowerMultiplyer = 0.17
+  player.spellPowerMultiplyer = 0.17
 }
+

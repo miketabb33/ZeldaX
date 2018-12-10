@@ -1,3 +1,4 @@
+//Human
 function ifHumanBaseStatsPlayer1(){
   if(player1Race === 'Human'){
     player1BaseStamina = 20;
@@ -5,8 +6,6 @@ function ifHumanBaseStatsPlayer1(){
     player1BaseAgility = 20;
     player1BaseIntellect = 20;
     player1BaseSpirit= 21;
-    //racials
-    player1BaseCrit +=2
   }
 }
 
@@ -17,11 +16,9 @@ function ifHumanBaseStatsPlayer2(){
     player2BaseAgility = 20;
     player2BaseIntellect = 20;
     player2BaseSpirit= 20;
-    //racials
-    player1BaseCrit +=2
   }
 }
-
+//Orc
 function ifOrcBaseStatsPlayer1(){
   if(player1Race === 'Orc'){
     player1BaseStamina = 22;

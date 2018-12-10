@@ -20,14 +20,15 @@
 //= require player_stats/player2_attributes
 //= require classes/character
 //= require classes/functions/character_base_creator
+//= require_tree ./player_stat_modifiers
 //= require_tree ./classes/classes
-//= require_tree ./character_loadin/all_classes
-//= require_tree ./character_loadin/race
+//= require_tree ./character_loadin/basic_character_load_in
 //= require_tree ./character_loadin/if_mage
 //= require_tree ./actions
 //= require_tree ./game_mechanics
 //= require message_core/message_core
 //= require_tree ./helpers
+
 
 
 

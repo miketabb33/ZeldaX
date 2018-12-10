@@ -74,7 +74,25 @@ header{
 }
 /*minion cards*/
 
+#player1-turn-arrow{
+  font-size: 30px;
+  position:absolute; 
+  left:10px;
+  display: none;
+}
 
+#player2-turn-arrow{
+  font-size: 30px;
+  position:absolute; 
+  right:10px;
+  display:none;
+}
+
+.gray-photo{
+  opacity: 0.8;
+  background-color: #000;
+}
+/*
 @-webkit-keyframes example {
   0%   {background-color:#e0f0ff;}
   50%  {background-color:#ebf6ff;}
@@ -87,7 +105,7 @@ header{
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-
+*/
 .character-level-design{
   background-color:darkgrey;
   border-radius: 50px;

@@ -2,8 +2,9 @@ function nextPlayer(){
   if(isGameOn === true){
     $('#player'+activePlayer+'-moves').hide();
     $('.player'+activePlayer+'-card').removeClass('active-player')
+    $('#player'+activePlayer+'-turn-arrow').hide()
+    $('.player'+activePlayer+'-avatar-photo').addClass('gray-photo')
     activePlayer === 1 ? activePlayer =2 : activePlayer = 1;
-    $('.player'+activePlayer+'-card').addClass('active-player')
     howManyActionsLeftInTurn = totalActionsPerTurn;
     timeLeftInTurn = totalTimePerTurn;
     $('#end-turn-timer').hide();
@@ -12,7 +13,10 @@ function nextPlayer(){
     abilityAvailabilityChecker();
     anyAvailableActionsAtTurnStart()
     remainingActionsLeftHandler();
+    $('.player'+activePlayer+'-avatar-photo').removeClass('gray-photo')
+    $('.player'+activePlayer+'-card').addClass('active-player')
     $('#player'+activePlayer+'-moves').show();
+    $('#player'+activePlayer+'-turn-arrow').show()
     activePlayerNameDisplay();
     activePlayerMessanger()
   }
@@ -20,17 +24,17 @@ function nextPlayer(){
 
 function playerManaRegen(){
   if (activePlayer === 1){
-    player1RemainingMana += player1.spirit;
-    if(player1RemainingMana > player1.maxMana){
-      player1RemainingMana = player1.maxMana;
+    player1.remainingMana += player1.spirit;
+    if(player1.remainingMana > player1.maxMana){
+      player1.remainingMana = player1.maxMana;
     }
-    manaBarUpdater($('#player1-mana-bar'), player1RemainingMana, player1.maxMana);
+    manaBarUpdater($('#player1-mana-bar'), player1.remainingMana, player1.maxMana);
   }else{
-    player2RemainingMana += player2.spirit;
-    if(player2RemainingMana > player2.maxMana){
-      player2RemainingMana = player2.maxMana;
+    player2.remainingMana += player2.spirit;
+    if(player2.remainingMana > player2.maxMana){
+      player2.remainingMana = player2.maxMana;
     }
-    manaBarUpdater($('#player2-mana-bar'), player2RemainingMana, player2.maxMana);
+    manaBarUpdater($('#player2-mana-bar'), player2.remainingMana, player2.maxMana);
   }
 }
 
