@@ -1,3 +1,6 @@
+//Player Race Options: Human, Dwarf, Night Elf, Gnome, Orc, Undead, Tauren, Troll
+
+var player1ID = 'player1'
 var player1Name = 'Zeus';
 var player1Race = 'Human';
 var player1Class = 'Mage';
@@ -11,6 +14,7 @@ var player1MaxMana = 165;
 
 var player1BaseStamina, player1BaseStrength, player1BaseAgility, player1BaseIntellect,
 player1BaseSpirit;
+player1BaseStatWrapper()
 
 var player1BaseCrit = 5;
 var player1BaseBlock = 5;
@@ -26,6 +30,3 @@ var player1EquippedWeaponDamage = player1PrimaryWeapon.damage;
 var player1EquippedArmor = player1TotalEquippedStats.armor;
 var player1EquippedBlock = player1TotalEquippedStats.block;
 var player1EquippedSpirit = player1TotalEquippedStats.spirit;
-
-ifHumanBaseStatsPlayer1()
-ifOrcBaseStatsPlayer1()

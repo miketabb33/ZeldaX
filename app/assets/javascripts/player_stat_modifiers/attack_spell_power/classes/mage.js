@@ -1,14 +1,15 @@
 function mageAttackSpellPowerWrapper(player){
-  addSpellPowerFireBolt(player)
+  addSpellPowerFireball(player)
   addAttackPowerPyroBlast(player)
 }
 
-function addSpellPowerFireBolt(player){
-  spellPower = player.spellPowerMultiplyer * player.spellPower
-  player.fireBoltDamage = player.abilities.fireBoltD.damage.map(x => Math.floor(x * spellPower))
+function addSpellPowerFireball(player){
+  power = player.spellPowerMultiplyer * player.spellPower
+  console.log(power)
+  player.fireballDamage = player.abilities.fireball.damage.map(x => Math.floor((x * power)+x))
 }
 
 function addAttackPowerPyroBlast(player){
   attackPower = player.attackPowerMultiplyer * player.attackPower
-  player.pyroBlastDamage = player.abilities.pyroBlastD.damage.map(x => Math.floor(x * attackPower))
+  player.pyroBlastDamage = player.abilities.pyroBlastD.damage.map(x => Math.floor((x * attackPower)+x))
 }

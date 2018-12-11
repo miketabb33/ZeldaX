@@ -18,7 +18,7 @@ function enoughManaplayer2Checker(ability, remainingMana){
 }
 
 function ifTurnIsZero(){
-  if(howManyActionsLeftInTurn === 0){
+  if(actionsLeftInTurn === 0){
     $('#end-turn-button').removeClass('btn-warning');
     $('#end-turn-button').addClass('btn-success');
     $('.attack-actions').addClass('end-turn-disabled-abilities');

@@ -1,15 +1,15 @@
 function remainingActionsLeftHandler(){
   if (activePlayer === 1){
-    if(howManyActionsLeftInTurn === 0 || player1TotalMoveCount === $('.ability-disabled-player1').length){
+    if(actionsLeftInTurn === 0 || player1TotalMoveCount === $('.ability-disabled-player1').length){
       $('#actions-left-in-turn').text('No ');
     } else{
-      $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
+      $('#actions-left-in-turn').text(actionsLeftInTurn);
     }
   }else{
-    if(howManyActionsLeftInTurn === 0 || player2TotalMoveCount === $('.ability-disabled-player2').length){
+    if(actionsLeftInTurn === 0 || player2TotalMoveCount === $('.ability-disabled-player2').length){
       $('#actions-left-in-turn').text('No ');
     } else{
-      $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
+      $('#actions-left-in-turn').text(actionsLeftInTurn);
     }
   }
 }

@@ -1,4 +1,7 @@
 var Character = {
+  ID: function(ID) {
+    this.ID = ID;
+  },
   characterName: function(characterName) {
     this.characterName = characterName;
   },

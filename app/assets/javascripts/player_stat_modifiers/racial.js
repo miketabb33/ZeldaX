@@ -1,8 +1,3 @@
-function racialStatBoostWrapper(player){
-  ifOrcRaceStatBoost(player)
-  ifHumanRaceStatBoost(player)
-}
-
 function ifOrcRaceStatBoost(player){
   if (player.characterRace === "Orc"){
     player.attackPower = Math.ceil(player.attackPower *1.05);
@@ -12,6 +7,6 @@ function ifOrcRaceStatBoost(player){
 
 function ifHumanRaceStatBoost(player){
   if (player.characterRace === "Human"){
-    player.crit += 2;
+    player.baseCrit += 2;
   }
 }

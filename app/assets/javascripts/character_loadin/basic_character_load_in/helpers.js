@@ -28,7 +28,7 @@ function basicCharacterLoadIn(player,playerID){
   statPopoverHover($('#'+playerID+'-stat-info-activator'), $('#'+playerID+'-stat-info-popover'))
 }
 
-function visualActionButtonDetails(button, ability, damage){
+function hoverButtonDetails(button, ability, damage){
   damage = damage.join('-')
   button.tooltip({title: damage+ " damage | "+ability.manaCost  +" mana Type: "+ ability.type, placement: "right"}); 
   button.text(ability.name);

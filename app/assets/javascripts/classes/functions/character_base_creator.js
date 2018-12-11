@@ -1,9 +1,10 @@
-function characterBase(player,playerName,playerRace,playerAvatarPhoto,playerLevel,playerBaseHealth,
+function characterBase(player,playerID,playerName,playerRace,playerAvatarPhoto,playerLevel,playerBaseHealth,
                        playerMaxMana,playerBaseStamina,playerEquippedStamina,playerBaseStrength,
                        playerEquippedStrength,playerBaseAgility,playerEquippedAgility,playerBaseIntellect,
                        playerEquippedIntellect,playerBaseSpirit,playerEquippedSpirit,playerBaseCrit,playerEquippedCrit,playerEquippedAttackPower,
                        playerEquippedSpellPower,playerEquippedWeaponDamage,playerEquippedArmor,playerBaseBlock,
                        playerEquippedBlock){
+  player.ID(playerID);
   player.characterName(playerName);
   player.characterRace(playerRace);
   player.characterAvatarPhoto(playerAvatarPhoto);
@@ -28,26 +29,6 @@ function characterBase(player,playerName,playerRace,playerAvatarPhoto,playerLeve
   player.equippedArmor(playerEquippedArmor);
   player.baseBlock(playerBaseBlock);
   player.equippedBlock(playerEquippedBlock);
-  //derived stats
-  player.stamina = player.baseStamina+player.equippedStamina;
-  player.strength = player.baseStrength + player.equippedStrength;
-  player.agility = player.baseAgility + player.equippedAgility;
-  player.intellect = player.baseIntellect+ player.equippedIntellect;
-  player.spirit = player.baseSpirit+ player.equippedSpirit;
 
-  //other derived attr.
-  player.staminaMultiplyer = player.stamina *0.6;
-  player.strengthMultiplyer = player.strength*0.2;
-  player.agilityMultiplyer = player.agility*0.3;
-  player.intellectMultiplyer = player.intellect*0.5;
-  player.attackPower = Math.ceil(player.strengthMultiplyer + player.agilityMultiplyer + player.equippedAttackPower)
-  player.spellPower = Math.ceil(player.equippedSpellPower+ player.intellectMultiplyer)
-  player.block = player.baseBlock + player.equippedBlock;
-  player.crit = player.baseCrit+ player.equippedCrit;
-  player.maxHealth = Math.round(player.baseHealth +player.staminaMultiplyer);
-
-  //attackPower and spell power multiplyers
-  player.attackPowerMultiplyer = 0.17
-  player.spellPowerMultiplyer = 0.17
 }
 

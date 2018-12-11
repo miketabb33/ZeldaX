@@ -1,6 +1,7 @@
 var Mage =Object.create(Character);
 
 Mage.characterClass = 'Mage';
+Mage.actionsPerTurn = 2;
 Mage.actionBar = function(playerBarID, playerBarType) {
   playerBarID.html('Mana:'+
   '<div class="progress">'+
@@ -13,11 +14,11 @@ Mage.abilities = {
     name: 'Attack',
     manaCost: 0,
   },
-  fireBoltD:{
+  fireball:{
     type: 'spell',
-    name: 'Fire Bolt',
-    manaCost: 15,
-    damage: [7,11],
+    name: 'Fireball',
+    manaCost: 30*2,
+    damage: [14,22],
   },
   pyroBlastD: {
     type: 'melee',

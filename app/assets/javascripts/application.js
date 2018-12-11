@@ -19,7 +19,7 @@
 //= require player_stats/player1_attributes
 //= require player_stats/player2_attributes
 //= require classes/character
-//= require classes/functions/character_base_creator
+//= require_tree ./classes/functions
 //= require_tree ./player_stat_modifiers
 //= require_tree ./classes/classes
 //= require_tree ./character_loadin/basic_character_load_in

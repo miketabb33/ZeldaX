@@ -5,7 +5,7 @@ function nextPlayer(){
     $('#player'+activePlayer+'-turn-arrow').hide()
     $('.player'+activePlayer+'-avatar-photo').addClass('gray-photo')
     activePlayer === 1 ? activePlayer =2 : activePlayer = 1;
-    howManyActionsLeftInTurn = totalActionsPerTurn;
+    activePlayer === 1 ? actionsLeftInTurn = player1.actionsPerTurn : actionsLeftInTurn = player2.actionsPerTurn;
     timeLeftInTurn = totalTimePerTurn;
     $('#end-turn-timer').hide();
     $('.attack-actions').removeClass('end-turn-disabled-abilities');
@@ -45,7 +45,7 @@ function anyAvailableActionsAtTurnStart(){
       $('#end-turn-button').removeClass('btn-warning');
       $('#end-turn-button').addClass('btn-success');
     }else{
-      $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
+      $('#actions-left-in-turn').text(actionsLeftInTurn);
       $('#end-turn-button').removeClass('btn-success');
       $('#end-turn-button').addClass('btn-warning');
     }
@@ -54,7 +54,7 @@ function anyAvailableActionsAtTurnStart(){
       $('#end-turn-button').removeClass('btn-warning');
       $('#end-turn-button').addClass('btn-success');
     }else{
-      $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
+      $('#actions-left-in-turn').text(actionsLeftInTurn);
       $('#end-turn-button').removeClass('btn-success');
       $('#end-turn-button').addClass('btn-warning');
     }  

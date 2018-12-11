@@ -1,4 +1,4 @@
-var isGameOn, totalActionsPerTurn, howManyActionsLeftInTurn, totalTimePerTurn, 
+var isGameOn, actionsLeftInTurn, totalTimePerTurn, 
 timeLeftInTurn, player1TotalMoveCount, player2TotalMoveCount, t, player1WinCount, 
 player2WinCount, activePlayer;
 
@@ -11,8 +11,7 @@ function initFight(){
   player1.remainingMana = player1.maxMana;
   player2.remainingHealth = player2.maxHealth;
   player2.remainingMana = player2.maxMana;
-  totalActionsPerTurn = 2;
-  howManyActionsLeftInTurn = totalActionsPerTurn;
+  actionsLeftInTurn = player1.actionsPerTurn;
   totalTimePerTurn = 30;
   timeLeftInTurn = totalTimePerTurn;
   player1TotalMoveCount = $('#player1-moves > button').length;
@@ -27,7 +26,7 @@ function initFightVisual(){
   $('#end-turn-timer').hide();
   $('#whos-turn').text(player1.characterName+"'s turn");
   $('#player2-moves').hide();
-  $('#actions-left-in-turn').text(howManyActionsLeftInTurn);
+  $('#actions-left-in-turn').text(actionsLeftInTurn);
   $('#winner-display-turn-board').css('display','none')
   $('#fight-again-button').hide();
   $('.player2-avatar-photo').addClass('gray-photo')
