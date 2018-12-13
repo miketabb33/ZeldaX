@@ -1,6 +1,6 @@
 <!-- <header class="bg-dark text-white p-4">Fight Simulator</header> -->
   <div class="container" id="uppermost-container">
-
+<!-- page 1-->
     <div class="card-group" id="prefight-display">
       <div class="card player1-card">
         <div class="player1-avatar-photo"><%= image_tag('mage.jpg', class: "card-img-top", alt: "player1 Image") %></div> 
@@ -32,6 +32,7 @@
       <button type="button" id="start-fight-button" class="btn btn-danger btn-block">Fight!</button>
     </div>
 
+<!-- page 2-->
     <div class="card-group" id="fight-display">
       <div class="card player1-card">
         <div class="player1-avatar-photo"><%= image_tag('mage.jpg', class: "card-img-top", alt: "player1 Image") %></div> 
@@ -39,6 +40,7 @@
           <span class="player1-character-level character-level-design"></span>
         </div>
         <div class="card-body">
+          <div id="active-action-state-player1"></div>
           <div class="stat-info-popover text-info"><i class="fa fa-info-circle" aria-hidden="true" id="player1-stat-info-activator"></i></div>
           <div id="player1-stat-info-popover" class="player-stat-info-popover">
             <div id="player1-stat-popover-header" class="player-stat-popover-header"></div>
@@ -76,12 +78,13 @@
       </div>
 
 
-      <div class="card player2-card">
+      <div class="card player2-card" id="player2-card">
         <div class="player2-avatar-photo"><%= image_tag('warrior.png', class: "card-img-top", alt: "player2 Image") %></div> 
         <div class="card-img-overlay player2-level-placement">
           <span class="player2-character-level character-level-design"></span>
         </div>
         <div class="card-body">
+          <div id="active-action-state-player2"></div>
           <div class="stat-info-popover text-info"><i class="fa fa-info-circle" aria-hidden="true" id="player2-stat-info-activator"></i></div>
           <div id="player2-stat-info-popover" class="player-stat-info-popover">
             <div id="player2-stat-popover-header" class="player-stat-popover-header"></div>

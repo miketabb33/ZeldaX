@@ -1,4 +1,3 @@
-//The Human Spirit: humans get a 2% addition to total crit
 function ifHumanRaceActionLoadIn(){
 //  if (playerRace === "Human"){
 //   $('#player1-moves').append('<button type="button" id="smash1" class="btn btn-success mt-2 attack-actions" data-toggle="tooltip"></button>');

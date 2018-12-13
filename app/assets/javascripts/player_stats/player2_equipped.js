@@ -295,6 +295,9 @@ var player2TotalEquippedStats = {
           player2TrinketSlot1.block+ player2TrinketSlot2.block+ player2PrimaryWeapon.block+player2OffHand.block, 
   spirit: player2HeadArmor.spirit +player2Neck.spirit+ player2ShoulderArmor.spirit +player2Back.spirit+ player2ChestArmor.spirit +player2WristArmor.spirit+
          player2HandsArmor.spirit + player2WaistArmor.spirit + player2LegsArmor.spirit + player2FeetArmor.spirit+ player2FingerSlot1.spirit+ player2FingerSlot2.spirit+
-         player2TrinketSlot1.spirit+ player2TrinketSlot2.spirit+ player2PrimaryWeapon.spirit+player2OffHand.spirit,       
+         player2TrinketSlot1.spirit+ player2TrinketSlot2.spirit+ player2PrimaryWeapon.spirit+player2OffHand.spirit,    
+  weaponDamage: []   
 }
+player2TotalEquippedStats.weaponDamage.push(player2PrimaryWeapon.damage[0] + player2OffHand.damage[0])
+player2TotalEquippedStats.weaponDamage.push(player2PrimaryWeapon.damage[1] + player2OffHand.damage[1])
 

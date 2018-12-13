@@ -1,12 +1,17 @@
 function mageAttackSpellPowerWrapper(player){
   addSpellPowerFireball(player)
+  addSpellPowerFireballDot(player)
   addAttackPowerPyroBlast(player)
 }
 
 function addSpellPowerFireball(player){
   power = player.spellPowerMultiplyer * player.spellPower
-  console.log(power)
   player.fireballDamage = player.abilities.fireball.damage.map(x => Math.floor((x * power)+x))
+}
+
+function addSpellPowerFireballDot(player){
+  power = player.spellPowerMultiplyer * player.spellPower
+  player.fireballDamageDot = player.abilities.fireball.dot.damage.map(x => Math.floor((x * power)+x))
 }
 
 function addAttackPowerPyroBlast(player){

@@ -19,17 +19,11 @@ function statPopoverHover(activatorSelector, infoSelector){
 }
 
 function basicCharacterLoadIn(player,playerID){
-  $('.'+playerID+'-character-name').text(player.characterName);
-  $('.'+playerID+'-character-race').text(player.characterRace);
-  $('.'+playerID+'-character-class').text(player.characterClass);
-  $('.'+playerID+'-character-level').text(player.characterLevel);
-  statPopoverLoadin($('#'+playerID+'-stat-popover-header'),$('#'+playerID+'-stat-popover-body'),player);
-  $('#'+playerID+'-stat-info-popover').hide();
-  statPopoverHover($('#'+playerID+'-stat-info-activator'), $('#'+playerID+'-stat-info-popover'))
-}
-
-function hoverButtonDetails(button, ability, damage){
-  damage = damage.join('-')
-  button.tooltip({title: damage+ " damage | "+ability.manaCost  +" mana Type: "+ ability.type, placement: "right"}); 
-  button.text(ability.name);
+  $('.player'+playerID+'-character-name').text(player.characterName);
+  $('.player'+playerID+'-character-race').text(player.characterRace);
+  $('.player'+playerID+'-character-class').text(player.characterClass);
+  $('.player'+playerID+'-character-level').text(player.characterLevel);
+  statPopoverLoadin($('#player'+playerID+'-stat-popover-header'),$('#player'+playerID+'-stat-popover-body'),player);
+  $('#player'+playerID+'-stat-info-popover').hide();
+  statPopoverHover($('#player'+playerID+'-stat-info-activator'), $('#player'+playerID+'-stat-info-popover'))
 }

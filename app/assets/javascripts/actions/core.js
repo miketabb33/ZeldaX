@@ -7,16 +7,6 @@ function enoughManaChecker(ability, remainingMana, attckingPlayer){
   }
 }
 
-function enoughManaplayer2Checker(ability, remainingMana){
-  if(remainingMana < ability.manaCost){
-    player2.enoughMana = false;
-    createMessage('Not enough mana', false);
-  }else{
-    player2.enoughMana = true;
-  }
-
-}
-
 function ifTurnIsZero(){
   if(actionsLeftInTurn === 0){
     $('#end-turn-button').removeClass('btn-warning');
@@ -32,12 +22,6 @@ function endOfGameChecker(receivingPlayer){
   }
 }
 
-function endOfGameCheckerplayer2Win(){
-  if (player1.remainingHealth <= 0){
-    player1.remainingHealth = 0;
-    isGameOn = false;
-  }
-}
 
 function endOfGame(winner, loser, loserID){
   if (isGameOn === false){
@@ -102,30 +86,14 @@ function blockAttack(block, ability){
 }
 
 function damageAfterArmor(damage, player){
-  var num = Math.ceil(damage * (1-(player.equippedArmor*0.0005)))
-  if(num <=0){
+  var absorbed = player.equippedArmor/5
+
+  //var num = Math.ceil(damage * (1-(player.equippedArmor*0.0005)))
+  if((damage-absorbed) <=0){
     return 0;
   } else{
-    return num
+    return damage-absorbed;
   }
 }
-
-// function attackPowerSpellPower(damage, player, ability){
-//   if(ability.type === "spell"){
-//     var num = Math.ceil(damage * (1+(player.spellPower*0.0005)))
-//     return num
-//   } else if((ability.type === "melee")){
-//     var num = Math.ceil(damage * (1+(player.attackPower*0.0005)))
-//     return num
-//   }else{
-//     return damage
-//   }
-// }
-
-
-
-
-
-
 
 

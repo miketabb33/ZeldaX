@@ -22,8 +22,12 @@
 //= require_tree ./classes/functions
 //= require_tree ./player_stat_modifiers
 //= require_tree ./classes/classes
+//= require_tree ./items
+//= require_tree ./bag
 //= require_tree ./character_loadin/basic_character_load_in
+//= require_tree ./character_loadin/hover_button_details
 //= require_tree ./character_loadin/if_mage
+//= require character_loadin/dot_state
 //= require_tree ./actions
 //= require_tree ./game_mechanics
 //= require message_core/message_core

@@ -19,8 +19,8 @@ function derivedStats(player){
   player.maxHealth = Math.round((player.baseHealth+player.staminaMultiplyer));
   //attackPower and spell power multiplyers
 
-  player.attackPowerMultiplyer = 0.010
-  player.spellPowerMultiplyer = 0.010
+  player.attackPowerMultiplyer = 0.01
+  player.spellPowerMultiplyer = 0.01
   // player.attackPowerMultiplyer = 
   // player.spellPowerMultiplyer = 1
 }

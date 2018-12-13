@@ -12,7 +12,7 @@ function initFight(){
   player2.remainingHealth = player2.maxHealth;
   player2.remainingMana = player2.maxMana;
   actionsLeftInTurn = player1.actionsPerTurn;
-  totalTimePerTurn = 30;
+  totalTimePerTurn = 35;
   timeLeftInTurn = totalTimePerTurn;
   player1TotalMoveCount = $('#player1-moves > button').length;
   player2TotalMoveCount = $('#player2-moves > button').length;
@@ -63,6 +63,9 @@ function timerStart(){
 }
 
 function resetGame(){
+  player1.bag.slot1.count = 2;
+  player2.bag.slot1.count = 2;
+
   $('#player1-turn-arrow').hide()
   $('#player2-turn-arrow').hide()
   $('.player'+activePlayer+'-card').removeClass('active-player')

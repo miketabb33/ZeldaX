@@ -92,23 +92,18 @@ header{
   opacity: 0.8;
   background-color: #000;
 }
-/*
+
 @-webkit-keyframes example {
   0%   {background-color:#e0f0ff;}
-  50%  {background-color:#ebf6ff;}
+  50%  {background-color:#bbebff;}
   100% {background-color:#e0f0ff;}
 }
 
 .active-player{
   -webkit-animation-name: example; 
-  -webkit-animation-duration: 4s;
+  -webkit-animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-}
-*/
-
-.active-player{
-  border: thin solid black;
 }
 
 .character-level-design{
@@ -132,6 +127,20 @@ header{
 
 .card-group{
   margin-top: 30px;
+}
+
+#active-action-state-player2{
+  position: absolute;
+  right: 45px;
+}
+
+#active-action-state-player1{
+  position: absolute;
+  right: 45px;
+}
+
+.fa-fire{
+  color:red;
 }
 
 #player2-death-indicator{
