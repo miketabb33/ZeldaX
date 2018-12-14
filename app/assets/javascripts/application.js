@@ -1,4 +1,21 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
+/*TO DO LIST*/
+// add custom popover to action buttons or find a way to keep food count current thoughout multiple turns.
+// create a bag section that houses the item action buttons
+// create a dot display which overlays the char photo
+// create a buff display which overlays the char photo
+// refactor ability availability checker
+// fix attackingPlayer typo throughout action mechanics
+// add base armor of 40 to each charcter/ adjust combat armor ratio
+// add realtime damage marker over recieving player image. damage shoud fade away.
+
+/*BUGS*/
+//After rematch, the end turn button dosent always go back to yellow 
+
+
+
+
+
+//This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
@@ -28,10 +45,13 @@
 //= require_tree ./character_loadin/hover_button_details
 //= require_tree ./character_loadin/if_mage
 //= require character_loadin/dot_state
+//= require character_loadin/buff_state
+//= require character_loadin/hover_dot_buff
 //= require_tree ./actions
 //= require_tree ./game_mechanics
 //= require message_core/message_core
 //= require_tree ./helpers
+
 
 
 

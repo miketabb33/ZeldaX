@@ -1,5 +1,5 @@
-function enoughManaChecker(ability, remainingMana, attckingPlayer){
-  if(remainingMana < ability.manaCost){
+function enoughManaChecker(attckingPlayer, ability){
+  if(attckingPlayer.remainingMana < ability.manaCost){
     attckingPlayer.enoughMana = false;
     createMessage('Not enough mana', false);
   } else{
@@ -95,5 +95,21 @@ function damageAfterArmor(damage, player){
     return damage-absorbed;
   }
 }
+
+function dotBuffHotIconHandler(player, selector, ability, icon, msg){
+  if($(selector+player.ID+' > .'+icon).length === 0){
+    $(selector+player.ID).append('<i class="fas '+icon+'"></i>')
+    dotBuffIconHover($('.'+icon), msg)
+    $(selector+player.ID).show()
+  }
+}
+
+function noIconInContainerHandler(selector,player){
+  if ($(selector+player.ID+' > i').length === 0){
+    $(selector+player.ID).hide()
+  }
+}
+
+
 
 

@@ -19,6 +19,10 @@ function initFight(){
 }
 
 function initFightVisual(){
+  $('#dot-display-player1').hide()
+  $('#dot-display-player2').hide()
+  $('#buff-hot-display-player1').hide()
+  $('#buff-hot-display-player2').hide()
   $('#player'+activePlayer+'-turn-arrow').show()
   $('.player'+activePlayer+'-card').addClass('active-player')
   $('#prefight-display').hide();
@@ -65,6 +69,10 @@ function timerStart(){
 function resetGame(){
   player1.bag.slot1.count = 2;
   player2.bag.slot1.count = 2;
+  player1.dotState.fireball.active = false;
+  player2.dotState.fireball.active = false;
+  $('#active-action-state-player1').text('')
+  $('#active-action-state-player2').text('')
 
   $('#player1-turn-arrow').hide()
   $('#player2-turn-arrow').hide()

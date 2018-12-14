@@ -26,7 +26,6 @@ function isManaAbilityAvailable(whoRemainingMana, whoAbilityDisabled, button, ab
   }
 }
 
-
 function manaBarUpdater(attackerManaBar,attackerRemainingMana, attackerTotalMana){
   percentageMana = attackerRemainingMana/attackerTotalMana*100;
   attackerManaBar.css('width', percentageMana+'%');
@@ -38,3 +37,11 @@ function healthBarUpdater(receiverHealthBar, receiverRemainingHealth, receiverTo
   receiverHealthBar.css('width', percentageHealth+'%');
   receiverHealthBar.text(receiverRemainingHealth+'/'+receiverTotalHealth);
 }   
+
+function dotContainerStyleAdjustCheckerForDot(player){
+  if($('#buff-hot-display-player'+player.ID + ' > i').length > 0){
+    $('#dot-display-player'+player.ID).css('top', '55px')
+  } else{
+    $('#dot-display-player'+player.ID).css('top', '20px')
+  }
+}

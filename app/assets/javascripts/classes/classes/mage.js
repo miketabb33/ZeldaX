@@ -20,15 +20,22 @@ Mage.abilities = {
     manaCost: 30*2,
     damage: [14,22],
     dot: {
-      name: 'Fireball Burn',
+      name: 'Fireball burn',
       damage:[2,6],
       turns: 2
-    }
+    },
   },
   pyroBlastD: {
     type: 'melee',
     name: 'Ice Punch',
     manaCost: 90,
     damage: [18,30],
+  },
+  frostArmor: {
+    type: 'buff',
+    name: 'Frost Armor',
+    manaCost: 3,
+    armorGain: 30*2,
+    turns: 2
   }
 }

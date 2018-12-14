@@ -18,7 +18,6 @@ if (player1Class === 'Mage'){
 
   addAttackPowerToWeaponDamage(player1,player1EquippedWeaponDamage)
   mageAttackSpellPowerWrapper(player1)
-  
   player1BagLoadIn()
 
   console.log(player1)

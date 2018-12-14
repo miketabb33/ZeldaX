@@ -11,7 +11,7 @@ function foodRegenAction(button,player){
       createMessage(player.characterName+' gained '+ (player.remainingHealth - messageHealth)+' health',true)
       remainingActionsLeftHandler()
       ifTurnIsZero();
-
+      $('#slot1ID-player'+player.ID).html(player.bag.slot1.count)
       healthBarUpdater($('#player'+player.ID+'-health-bar'),player.remainingHealth, player.maxHealth)
       if (player.bag.slot1.count == 0){
         button.removeClass('btn-success');
@@ -22,7 +22,5 @@ function foodRegenAction(button,player){
     else if (player.bag.slot1.count == 0 && actionsLeftInTurn > 0){
       createMessage('No more '+ player.bag.slot1.item.name,false)
     }
-    console.log(player1)
-    console.log(player2)
   });
 }

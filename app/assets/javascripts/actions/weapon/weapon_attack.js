@@ -1,4 +1,4 @@
-function weaponAttack(button,ability,attckingPlayer, receivingPlayer){
+function weaponAttack(button,attckingPlayer, receivingPlayer,ability){
   button.click(function(){
     if(isGameOn === true && actionsLeftInTurn > 0){
       baseDamage = getRandomArbitrary(attckingPlayer.equippedWeaponDamage[0],attckingPlayer.equippedWeaponDamage[1]);

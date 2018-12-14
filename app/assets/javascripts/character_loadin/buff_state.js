@@ -1,12 +1,12 @@
-player1.dotState = {
-  fireball:{
+player1.buffState = {
+  frostArmor:{
     active: false,
     //turnsLeft: Mage.abilities.fireball.dot.turns
   } 
 }
 
-player2.dotState = {
-  fireball:{
+player2.buffState = {
+  frostArmor:{
     active: false,
     //turnsLeft: Mage.abilities.fireball.dot.turns
   } 

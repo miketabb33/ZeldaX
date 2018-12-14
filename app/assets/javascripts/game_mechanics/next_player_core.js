@@ -1,11 +1,7 @@
 function nextPlayer(){
   if(isGameOn === true){
-    //dots
-    if (activePlayer === 1){
-      dotListener(player1, player2,player1.abilities.fireball.dot, player1.fireballDamageDot)
-    } else {
-      dotListener(player2, player1,player2.abilities.fireball.dot, player2.fireballDamageDot)
-    }
+    dotListenerWrapper()
+    buffListenerWrapper()
     //next player functionality
     $('#player'+activePlayer+'-moves').hide();
     $('.player'+activePlayer+'-card').removeClass('active-player')
