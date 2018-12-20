@@ -8,6 +8,40 @@
 body{
   background-image: url("background.jpg");
 }
+
+#uppermost-container{
+  margin-top: 60px;
+  display: block;
+}
+
+/*turn popup notifier*/
+#turn-popup-notifier{
+  position:absolute;
+  padding: 20px;
+  background-color: white;
+  top: 25%;
+  left: 0;
+  right:0;
+  width: 50%;
+  font-size: 30px;
+  margin: auto;
+  z-index: 100;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px;
+  text-align:center;
+}
+
+#full-grayed-out-screen{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 99;
+  content: "";
+}
+
 /*header*/
 header{
   font-size: 2em;
@@ -18,6 +52,11 @@ header{
 /*pre fight*/
 #prefight-display{
   margin-top: 30px;
+}
+
+#fight-display{
+  position: relative;
+  height: 700px;
 }
 
 #VS-symbol{
@@ -31,17 +70,46 @@ header{
   margin-top: 20px;
 }
 
-.win-count-display{
-  position:absolute;
-  right:15px;
-  bottom:55px;
+/*message box*/
 
+#combat-message-header{
+  position: relative;
+  padding: 3px;
+  padding-left: 8px;
+  display: inline-block;
+  font-size: 10px;
+  background-color: #D3D3D3;
+  z-index:9;
+  border-radius: 5px 4px 0 0;
 }
 
-/*message box*/
+#combat-message-header::after{
+  width: 35px;
+  height: 35px;
+  margin-top: 6px;
+  background-color: #D3D3D3;
+  position:absolute;
+  left: 87px;
+  transform:rotate(40deg);
+  content: '';
+  z-index:-1;
+}
 #combat-message{
-  height: 300px;
+  position: relative;
   overflow: scroll;
+  height: 250px;
+  border-top: solid thin #D3D3D3;
+  padding-top: 8px;
+  z-index: 10;
+  background-color:white;
+  bottom: 0;
+}
+
+#combat-message-container{
+  position:absolute;
+  width: 84%;
+  bottom:0;
+  height: 300px;
 }
 
 .player1-message{
@@ -52,7 +120,8 @@ header{
   color: red;
 }
 
-/*pop*/
+/*player stat pop up*/
+
 .player-stat-info-popover{
   box-shadow: 3px 3px 6px darkgrey;
   position: absolute;
@@ -69,73 +138,68 @@ header{
   font-size: 20px; 
   margin-bottom: 12px;
 }
-/*minion cards*/
-.character-level-design{
-  background-color:darkgrey;
-  border-radius: 50px;
-  padding: 2px 10px 2px 10px;
-  border: solid #a68300;
-  color: gold;
-  text-shadow: 3px 3px 5px black;
-  box-shadow: 3px 3px 5px black;
-  font-size:18px;
+
+/*center console*/
+
+#action-header-title{
+  font-family: 'Yatra One', cursive;
+  position: relative;
+  display: inline-block;
+  width:240px;
+  background-color: #D3D3D3;
+  font-size: 20px;  
+  letter-spacing: 1px;
+  font-weight: 700;
+  border: solid thin #191919;
+  box-shadow: 1px 1px 4px darkgray;
+  text-shadow: 1px 1px 18px darkgray;
 }
 
-.player2-level-placement{
-  text-align: right;
+#action-header{
+  text-align: center;
+  position: relative;
+  margin-top: -5px;
+  margin-bottom: 18px;
 }
 
-.card{
-  width: 200px;
-}
-
-.card-group{
-  margin-top: 30px;
-}
-
-#player2-death-indicator{
-  visibility: hidden;
-}
-
-#player1-death-indicator{
-  visibility: hidden;
-}
-
-.stat-info-popover{
+#action-art-left{
+  width: 63px;
   position:absolute;
-  right:20px;
-  font-size: 16px;
+  top: -4px;
+  left: 0px;
+  z-index: 2;
+}
+#action-art-right{
+  width: 72px;
+  position:absolute;
+  top: -4px;
+  margin-top:-5px;
+  position:absolute;
+  z-index: 2;
+  right: -4px;
 }
 
-/* init bars */
-
-#player2-health-bar{
-  width: 100%;
+#player1-turn-arrow{
+  font-size: 30px;
+  position:absolute; 
+  left:10px;
+  display: none;
 }
 
-#player2-mana-bar{
-  width: 100%;
-}
-
-#player1-health-bar{
-  width: 100%;
-}
-
-#player1-mana-bar{
-  width: 100%;
-}
-
-/*action box*/
-.attack-actions{
-  display:block;
+#player2-turn-arrow{
+  font-size: 30px;
+  position:absolute; 
+  right:10px;
+  display:none;
 }
 
 #player2-moves{
-  display: block;
+  display: flexbox;
+  justify-content: space-between;
 }
-
-.card-header{
-  text-align: center;
+#player1-moves{
+  display: flexbox;
+  justify-content: space-between;
 }
 
 .ability-disabled-player1{
@@ -173,4 +237,148 @@ header{
   font-size: 1.2em;
   background-color: #d9534f;
   border-radius: 30px;
+}
+
+/*minion cards*/
+
+.card{
+  width: 200px;
+}
+
+.card-group{
+  margin-top: 30px;
+}
+
+.gray-photo{
+  opacity: 0.8;
+  background-color: #000;
+}
+
+@-webkit-keyframes example {
+  0%   {background-color:#e0f0ff;}
+  50%  {background-color:#bbebff;}
+  100% {background-color:#e0f0ff;}
+}
+
+.active-player{
+  -webkit-animation-name: example; 
+  -webkit-animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.player2-level-placement{
+  text-align: right;
+}
+
+.character-level-design{
+  background-color:darkgrey;
+  border-radius: 50px;
+  padding: 2px 10px 2px 10px;
+  border: solid #a68300;
+  color: gold;
+  text-shadow: 3px 3px 5px black;
+  box-shadow: 3px 3px 5px black;
+  font-size:18px;
+}
+
+#dot-display-player1{
+  background-color: white;
+  opacity: 0.6;
+  padding: 3px 8px;
+  border-radius: 20px;
+  position:absolute;
+  right:18px;
+}
+
+#dot-display-player2{
+  background-color: white;
+  opacity: 0.6;
+  padding: 3px 8px;
+  border-radius: 20px;
+  position:absolute;
+  left:18px;
+}
+
+#buff-hot-display-player1{
+  background-color: white;
+  opacity: 0.6;
+  padding: 3px 8px;
+  border-radius: 20px;
+  position:absolute;
+  right:18px;
+}
+
+#buff-hot-display-player2{
+  background-color: white;
+  opacity: 0.6;
+  padding: 3px 8px;
+  border-radius: 20px;
+  position:absolute;
+  left:18px;
+}
+
+.fa-fire{
+  color:red;
+}
+
+.fa-shield-alt{
+  color: blue;
+}
+
+#player2-death-indicator{
+  visibility: hidden;
+}
+
+#player1-death-indicator{
+  visibility: hidden;
+}
+
+.stat-info-popover{
+  position:absolute;
+  right:20px;
+  font-size: 16px;
+}
+
+/* init bars */
+
+#player2-health-bar{
+  width: 100%;
+}
+
+#player2-mana-bar{
+  width: 100%;
+}
+
+#player1-health-bar{
+  width: 100%;
+}
+
+#player1-mana-bar{
+  width: 100%;
+}
+
+/*action box*/
+.attack-actions{
+  margin: 0 3px;
+}
+
+.card-header{
+  text-align: center;
+}
+
+
+@media screen and (max-width: 993px) {
+  #action-art-left{
+    display: none;
+  }
+  #action-art-right{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #action-header-title{
+    width:180px;
+  }
 }

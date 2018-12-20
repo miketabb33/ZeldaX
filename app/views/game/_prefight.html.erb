@@ -1,0 +1,23 @@
+<div class="card player1-card">
+  <div class="player1-avatar-photo"><%= image_tag('mage.jpg', class: "card-img-top", alt: "player1 Image") %></div> 
+  <div class="card-img-overlay">
+    <span class="player1-character-level character-level-design"></span>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title"><span class="player1-character-name"></span></h4>
+    <p class="card-text"><span class="player1-character-race"></span> <span class="player1-character-class"></span></p>
+  </div>
+</div>
+<span id="VS-symbol" class=text-white>VS</span>
+<div class="card player2-card">
+  <div class="player2-avatar-photo"><%= image_tag('warrior.png', class: "card-img-top", alt: "player2 Image") %></div> 
+  <div class="card-img-overlay player2-level-placement">
+    <span class="player2-character-level character-level-design"></span>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title"><span class="player2-character-name"></span></h4>
+    <p class="card-text"><span class="player2-character-race"></span> <span class="player2-character-class"></p>
+  </div>
+</div>
+
+<button type="button" id="start-fight-button" class="btn btn-danger btn-block">Fight!</button>
