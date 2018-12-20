@@ -13,19 +13,25 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require player_stats/player1_equipped
-//= require player_stats/player2_equipped
-//= require player_stats/player1_attributes
-//= require player_stats/player2_attributes
-//= require classes/character
-//= require_tree ./classes/classes
-//= require classes/functions/character_base_creator
-//= require_tree ./character_loadin/all_classes
-//= require_tree ./character_loadin/races
+//= require player_stats(database)/base_stats
+//= require player_stats(database)/player1_equipped
+//= require player_stats(database)/player2_equipped
+//= require player_stats(database)/player1_attributes
+//= require player_stats(database)/player2_attributes
+//= require character_creator/blueprint
+//= require character_creator/base_creator
+//= require character_creator/derived_stats
+//= require_tree ./stat_modifiers
+//= require_tree ./classes
+//= require_tree ./items
+//= require_tree ./bag
+//= require_tree ./character_loadin/base_load_in
+//= require_tree ./character_loadin/buttons
 //= require_tree ./character_loadin/if_mage
+//= require_tree ./dots_hots_buffs
 //= require_tree ./actions
 //= require_tree ./game_mechanics
-//= require message_core/message_core
+//= require_tree ./message
 //= require_tree ./helpers
 
 
