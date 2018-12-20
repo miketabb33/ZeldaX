@@ -176,7 +176,7 @@ header{
   margin-top:-5px;
   position:absolute;
   z-index: 2;
-  right: -4px;
+  right: -5px;
 }
 
 #player1-turn-arrow{
@@ -194,12 +194,10 @@ header{
 }
 
 #player2-moves{
-  display: flexbox;
-  justify-content: space-between;
+  text-align: right;
 }
 #player1-moves{
-  display: flexbox;
-  justify-content: space-between;
+  
 }
 
 .ability-disabled-player1{

@@ -4,8 +4,9 @@ function weaponAttack(button,attackingPlayer, receivingPlayer,ability,sfx){
       baseDamage = getRandomArbitrary(attackingPlayer.equippedWeaponDamage[0],attackingPlayer.equippedWeaponDamage[1]);
       var aggregateDamage = baseDamage
       aggregateDamage = damageAfterArmor(aggregateDamage,receivingPlayer)
-      var blocked = blockAttack(attackingPlayer.block, ability)
+      var blocked = blockAttack(receivingPlayer, ability)
       blocked ? aggregateDamage = 0 : aggregateDamage = criticalHit(attackingPlayer.crit,ability,aggregateDamage)
+      blocked ? $("#block-sfx")[0].play() : $("#"+sfx+"-sfx")[0].play() 
       attackActuator(receivingPlayer,aggregateDamage)
       abilityAvailabilityChecker(activePlayerAccessor)
       anyAvailableActions(activePlayerAccessor);
@@ -15,7 +16,6 @@ function weaponAttack(button,attackingPlayer, receivingPlayer,ability,sfx){
       endOfGameChecker(receivingPlayer);
       endOfGame(attackingPlayer.characterName,receivingPlayer.characterName,$('#'+receivingPlayer.ID+'-death-indicator'))
       healthBarUpdater($('#player'+receivingPlayer.ID+'-health-bar'),receivingPlayer.remainingHealth, receivingPlayer.maxHealth)
-      $("#"+sfx+"-sfx")[0].play();
     }
   });
 }
@@ -31,6 +31,7 @@ function manaOneHitAttack(button,attackingPlayer, receivingPlayer,ability, damag
         var blocked = blockAttack(receivingPlayer, ability)
         blocked ? aggregateDamage = 0 : aggregateDamage = criticalHit(attackingPlayer.crit,ability,aggregateDamage)
         manaAttackActuator(attackingPlayer,receivingPlayer,aggregateDamage,ability,actionsLeftInTurn)
+        blocked ? $("#block-sfx")[0].play() : $("#"+sfx+"-sfx")[0].play() 
         abilityAvailabilityChecker(activePlayerAccessor)
         anyAvailableActions(activePlayerAccessor);
         remainingActionsLeftHandler(activePlayerAccessor)
@@ -40,7 +41,6 @@ function manaOneHitAttack(button,attackingPlayer, receivingPlayer,ability, damag
         endOfGame(attackingPlayer.characterName,receivingPlayer.characterName,$('#'+receivingPlayer.ID+'-death-indicator'))
         healthBarUpdater($('#player'+receivingPlayer.ID+'-health-bar'),receivingPlayer.remainingHealth, receivingPlayer.maxHealth)
         manaBarUpdater($('#player'+attackingPlayer.ID+'-mana-bar'), attackingPlayer.remainingMana,attackingPlayer.maxMana);
-        $("#"+sfx+"-sfx")[0].play();
       } 
     }
   });
@@ -56,9 +56,10 @@ function manaOneHitAttackWithDot(button,attackingPlayer, receivingPlayer,ability
         aggregateDamage = damageAfterArmor(aggregateDamage,receivingPlayer)
         var blocked = blockAttack(receivingPlayer, ability)
         blocked ? aggregateDamage = 0 : aggregateDamage = criticalHit(attackingPlayer.crit,ability,aggregateDamage)
+        blocked ? $("#block-sfx")[0].play() : $("#"+sfx+"-sfx")[0].play() 
         manaAttackActuator(attackingPlayer,receivingPlayer,aggregateDamage,ability,actionsLeftInTurn)
         dotSetter(dotState,ability) 
-        dotBuffHotIconHandler(receivingPlayer, '#dot-display-player',ability, dotIcon, ability.dot.name + ' for ' + ability.dot.damage.join('-')+ ' damage | lasts '+ability.dot.turns + ' turns')
+        dotBuffHotIconHandler(receivingPlayer, '#dot-display-player',ability, dotIcon, ability.dot.name + ' for ' + attackingPlayer.fireballDamageDot.join('-')+ ' damage | lasts '+ability.dot.turns + ' turns')
         dotContainerStyleAdjustChecker(receivingPlayer)
         abilityAvailabilityChecker(activePlayerAccessor)
         anyAvailableActions(activePlayerAccessor);
@@ -69,7 +70,6 @@ function manaOneHitAttackWithDot(button,attackingPlayer, receivingPlayer,ability
         endOfGame(attackingPlayer.characterName,receivingPlayer.characterName,$('#'+receivingPlayer.ID+'-death-indicator'))
         healthBarUpdater($('#player'+receivingPlayer.ID+'-health-bar'),receivingPlayer.remainingHealth, receivingPlayer.maxHealth)
         manaBarUpdater($('#player'+attackingPlayer.ID+'-mana-bar'), attackingPlayer.remainingMana,attackingPlayer.maxMana);
-        $("#"+sfx+"-sfx")[0].play();
       } 
     }
   });
@@ -80,14 +80,14 @@ function dotListener(attackingPlayer, receivingPlayer, ability, dotDamage, dotSt
     baseDamage = getRandomArbitrary(dotDamage[0],dotDamage[1]);
     var aggregateDamage = baseDamage;
     aggregateDamage = damageAfterArmor(aggregateDamage,receivingPlayer)
-    var blocked = blockAttack(receivingPlayer.block, ability)
+    var blocked = blockAttack(receivingPlayer, ability)
     blocked ? aggregateDamage = 0 : aggregateDamage = criticalHit(attackingPlayer.crit,ability,aggregateDamage)
+    blocked ? $("#block-sfx")[0].play() : $("#"+sfx+"-sfx").prop("volume", 0.5)[0].play();
     dotActuator(receivingPlayer,aggregateDamage,dotState)
     isDotExpired(receivingPlayer, dotState, dotIcon)
     endOfGameChecker(receivingPlayer);
     endOfGame(attackingPlayer.characterName,receivingPlayer.characterName,$('#'+receivingPlayer.ID+'-death-indicator'))
     healthBarUpdater($('#player'+receivingPlayer.ID+'-health-bar'),receivingPlayer.remainingHealth, receivingPlayer.maxHealth)
-    $("#"+sfx+"-sfx").prop("volume", 0.5)[0].play();
   }
 }
 

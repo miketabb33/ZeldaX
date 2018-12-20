@@ -21,6 +21,8 @@ function nextPlayer(){
     $('#player'+activePlayer+'-turn-arrow').show()
     activePlayerNameDisplay(activePlayerAccessor);
     activePlayerMessanger()
+    $("#clock-sfx")[0].pause();
+    $("#clock-sfx")[0].currentTime = 0
     $("#next-player-sfx")[0].play();
   }
 }

@@ -28,7 +28,4 @@ if (player1Class === 'Mage'){
     //ifOrcRaceActionLoadIn(player1, player1Race)
     foodItemAction(player1)
   })
-
-  ifHumanRace(player1, player1Race)
-  ifHumanActions()
 }

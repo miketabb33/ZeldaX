@@ -40,6 +40,7 @@ function endOfGame(winner, loser, loserID){
     $('#winner-display-turn-board').html('<h1>'+winner+' has won!</h1>');
     $('#fight-again').show();
     $("#win-sfx")[0].play();
+    $("#cheer-sfx")[0].play();
   }
 }
 
@@ -131,9 +132,10 @@ function criticalHit(crit, ability, damage){
   }
 }
 
-function blockAttack(block, ability){
+function blockAttack(player, ability){
   var num = Math.floor(Math.random() *100+1)
-  if (num <= block){
+  console.log(num, player.block)
+  if (num <= player.block){
     createMessage(ability.name+' blocked', true);
     return true;
   } else{

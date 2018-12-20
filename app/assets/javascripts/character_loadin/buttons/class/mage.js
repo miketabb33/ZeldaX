@@ -16,4 +16,4 @@ function mageActionWrapper(attackingPlayer, receivingPlayer){
     oneHitAttackHoverButtonDetails($('#pyro-blast'+attackingPlayer.ID), attackingPlayer.abilities.pyroBlastD, attackingPlayer.pyroBlastDamage);
     manaOneHitAttack($('#pyro-blast'+attackingPlayer.ID), attackingPlayer, receivingPlayer,attackingPlayer.abilities.pyroBlastD, attackingPlayer.pyroBlastDamage, "ice-punch");
   }
-}
+} 
