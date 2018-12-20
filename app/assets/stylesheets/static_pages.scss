@@ -13,6 +13,35 @@ body{
   margin-top: 60px;
   display: block;
 }
+
+/*turn popup notifier*/
+#turn-popup-notifier{
+  position:absolute;
+  padding: 20px;
+  background-color: white;
+  top: 25%;
+  left: 0;
+  right:0;
+  width: 50%;
+  font-size: 30px;
+  margin: auto;
+  z-index: 100;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px;
+  text-align:center;
+}
+
+#full-grayed-out-screen{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 99;
+  content: "";
+}
+
 /*header*/
 header{
   font-size: 2em;
@@ -25,6 +54,11 @@ header{
   margin-top: 30px;
 }
 
+#fight-display{
+  position: relative;
+  height: 700px;
+}
+
 #VS-symbol{
   margin-top: 23%;
   display: inline-block;
@@ -34,12 +68,6 @@ header{
 
 #start-fight-button{
   margin-top: 20px;
-}
-
-.win-count-display{
-  position:absolute;
-  right:15px;
-  bottom:55px;
 }
 
 /*message box*/
@@ -68,12 +96,20 @@ header{
 }
 #combat-message{
   position: relative;
-  height: 300px;
   overflow: scroll;
+  height: 250px;
   border-top: solid thin #D3D3D3;
   padding-top: 8px;
   z-index: 10;
   background-color:white;
+  bottom: 0;
+}
+
+#combat-message-container{
+  position:absolute;
+  width: 84%;
+  bottom:0;
+  height: 300px;
 }
 
 .player1-message{
@@ -109,7 +145,7 @@ header{
   font-family: 'Yatra One', cursive;
   position: relative;
   display: inline-block;
-  width:180px;
+  width:240px;
   background-color: #D3D3D3;
   font-size: 20px;  
   letter-spacing: 1px;
@@ -130,7 +166,7 @@ header{
   width: 63px;
   position:absolute;
   top: -4px;
-  left: 30px;
+  left: 0px;
   z-index: 2;
 }
 #action-art-right{
@@ -140,7 +176,7 @@ header{
   margin-top:-5px;
   position:absolute;
   z-index: 2;
-  right: 26px;
+  right: -4px;
 }
 
 #player1-turn-arrow{
@@ -343,6 +379,6 @@ header{
 
 @media screen and (max-width: 1200px) {
   #action-header-title{
-    width:120px;
+    width:180px;
   }
 }

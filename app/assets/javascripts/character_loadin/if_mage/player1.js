@@ -9,13 +9,11 @@ if (player1Class === 'Mage'){
                          player1EquippedAttackPower,player1EquippedSpellPower,
                          player1EquippedWeaponDamage,player1EquippedArmor,player1BaseBlock,
                          player1EquippedBlock)
-  //These will be calculated by databases and loaded into basestats
+
   mageStatBoost(player1)
-  //
   derivedStats(player1)
   ifHumanRaceStatBoost(player1)
   ifOrcRaceStatBoost(player1)
-
   addAttackPowerToWeaponDamage(player1,player1EquippedWeaponDamage)
   mageAttackSpellPowerWrapper(player1)
   player1BagLoadIn()
@@ -23,15 +21,11 @@ if (player1Class === 'Mage'){
   console.log(player1)
 
   $(document).ready(function(){
-    player1.actionBar($('#player1-action-bar'),'player1-mana-bar');
-    //action loadin   
+    player1.actionBar($('#player1-action-bar'),'player1-mana-bar');  
     weaponAttackWrapper(player1,player2)
     mageActionWrapper(player1,player2)
-
     //ifHumanRaceActionLoadIn()
     //ifOrcRaceActionLoadIn(player1, player1Race)
-
-    //item loadin
     foodItemAction(player1)
   })
 }

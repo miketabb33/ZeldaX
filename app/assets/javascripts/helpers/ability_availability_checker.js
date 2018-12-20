@@ -1,14 +1,8 @@
-function abilityAvailabilityChecker(){
-    //player1
-    if (player1.characterClass === "Mage"){ 
-      isManaAbilityAvailable(player1.remainingMana, 'ability-disabled-player1', $('#fireball1'), player1.abilities.fireball);
-      isManaAbilityAvailable(player1.remainingMana, 'ability-disabled-player1', $('#pyro-blast1'), player1.abilities.pyroBlastD);
-      isManaAbilityAvailable(player1.remainingMana, 'ability-disabled-player1', $('#frost-armor1'), player1.abilities.frostArmor);
+function abilityAvailabilityChecker(player){
+    //mage
+    if (player.characterClass === "Mage"){ 
+      isManaAbilityAvailable(player.remainingMana, 'ability-disabled-player'+player.ID, $('#fireball'+player.ID), player.abilities.fireball);
+      isManaAbilityAvailable(player.remainingMana, 'ability-disabled-player'+player.ID, $('#pyro-blast'+player.ID), player.abilities.pyroBlastD);
+      isManaAbilityAvailable(player.remainingMana, 'ability-disabled-player'+player.ID, $('#frost-armor'+player.ID), player.abilities.frostArmor);
     }
-    //player2
-      //mage
-    if (player2.characterClass === "Mage"){  
-      isManaAbilityAvailable(player2.remainingMana, 'ability-disabled-player2', $('#fireball2'), player2.abilities.fireball);
-      isManaAbilityAvailable(player2.remainingMana, 'ability-disabled-player2', $('#pyro-blast2'), player2.abilities.pyroBlastD);
-      isManaAbilityAvailable(player2.remainingMana, 'ability-disabled-player2', $('#frost-armor2'), player2.abilities.frostArmor);    }
   }

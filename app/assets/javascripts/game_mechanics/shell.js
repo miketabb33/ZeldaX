@@ -1,16 +1,12 @@
 $(document).ready(function(){
-  initPreFight()
   initPreFightVisual();
 
   $('#start-fight-button').on('click', function(){ 
     initFight();
     initFightVisual();
-    timerStart();
-  });
-
-  $('#fight-again-button').on('click',function(){
-    resetGame();
-    resetMessageBoard();
+    firstTurnNotifier()
+    $("#click-sfx")[0].play();
+    $("#bg-music1-sfx").prop("volume", 0.8)[0].play();
   });
 
   $('#end-turn-button').on('click',function(){
