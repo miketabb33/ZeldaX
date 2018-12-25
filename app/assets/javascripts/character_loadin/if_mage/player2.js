@@ -7,7 +7,7 @@ if (player2Class === 'Mage'){
                          player2BaseAgility,player2EquippedAgility,player2BaseIntellect,
                          player2EquippedIntellect, player2BaseSpirit, player2EquippedSpirit, player2BaseCrit,player2EquippedCrit,
                          player2EquippedAttackPower,player2EquippedSpellPower,
-                         player2EquippedWeaponDamage,player2EquippedArmor,player2BaseBlock,
+                         player2EquippedWeaponDamage,player2BaseArmor,player2EquippedArmor,player2BaseBlock,
                          player2EquippedBlock)
   
   mageStatBoost(player2)

@@ -17,7 +17,7 @@ Mage.abilities = {
   fireball:{
     type: 'spell',
     name: 'Fireball',
-    manaCost: 30*2,
+    manaCost: 60,
     damage: [14,22],
     dot: {
       name: 'Fireball burn',
@@ -34,8 +34,8 @@ Mage.abilities = {
   frostArmor: {
     type: 'buff',
     name: 'Frost Armor',
-    manaCost: 50*2,
-    armorGain: 30*2,
+    manaCost: 100,
+    armorGain: 60,
     turns: 2
   }
 }

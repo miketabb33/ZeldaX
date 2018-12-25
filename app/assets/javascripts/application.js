@@ -1,14 +1,12 @@
 /*TO DO LIST*/
 // add custom popover to action buttons or find a way to keep food count current thoughout multiple turns.
 // create a bag section that houses the item action buttons
-// refactor ability availability checker
-// add base armor of 40 to each charcter/ adjust combat armor ratio
-// add realtime damage marker over recieving player image. damage shoud fade away.
+// refactor dotListenerWrapper() and figure out why buffListenerWrapper(activePlayerAccessor) works
 // add some unit tests
 
 
 /*BUGS*/
-//After rematch, the end turn button dosent always go back to yellow 
+
 
 
 //This is a manifest file that'll be compiled into application.js, which will include all the files

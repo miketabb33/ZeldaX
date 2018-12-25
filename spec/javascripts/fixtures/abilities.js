@@ -1,0 +1,3 @@
+ability = {}
+
+ability.dot = {}

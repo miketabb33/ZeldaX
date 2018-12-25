@@ -1,6 +1,6 @@
 function derivedStats(player){
     //derived stats
-  player.stamina = player.baseStamina+player.equippedStamina;
+  player.stamina = player.baseStamina + player.equippedStamina;
   player.strength = player.baseStrength + player.equippedStrength;
   player.agility = player.baseAgility + player.equippedAgility;
   player.intellect = player.baseIntellect+ player.equippedIntellect;
@@ -17,6 +17,8 @@ function derivedStats(player){
   player.block = player.baseBlock + player.equippedBlock;
   player.crit = player.baseCrit+ player.equippedCrit;
   player.maxHealth = Math.round((player.baseHealth+player.staminaMultiplyer));
+
+  player.totalArmor = player.baseArmor + player.equippedArmor;
   
   //attackPower and spell power multiplyers
   player.attackPowerMultiplyer = 0.01

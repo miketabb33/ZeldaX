@@ -1,7 +1,7 @@
 //Player Race Options: Human, Dwarf, Night Elf, Gnome, Orc, Undead, Tauren, Troll
 
 var player1ID = '1'
-var player1Name = 'Julie';
+var player1Name = 'Michael';
 var player1Race = 'Human';
 var player1Class = 'Mage';
 var player1AvatarPhoto = 'mage.jpg';
@@ -19,6 +19,7 @@ player1BaseStatWrapper()
 var player1BaseCrit = 5;
 var player1BaseBlock = 5;
 
+var player1BaseArmor = 40;
 var player1EquippedStamina = player1TotalEquippedStats.stamina;
 var player1EquippedStrength = player1TotalEquippedStats.strength;
 var player1EquippedAgility = player1TotalEquippedStats.agility;

@@ -2,7 +2,7 @@ function characterBase(player,playerID,playerName,playerRace,playerAvatarPhoto,p
                        playerMaxMana,playerBaseStamina,playerEquippedStamina,playerBaseStrength,
                        playerEquippedStrength,playerBaseAgility,playerEquippedAgility,playerBaseIntellect,
                        playerEquippedIntellect,playerBaseSpirit,playerEquippedSpirit,playerBaseCrit,playerEquippedCrit,playerEquippedAttackPower,
-                       playerEquippedSpellPower,playerEquippedWeaponDamage,playerEquippedArmor,playerBaseBlock,
+                       playerEquippedSpellPower,playerEquippedWeaponDamage,playerBaseArmor,playerEquippedArmor,playerBaseBlock,
                        playerEquippedBlock){
   player.ID(playerID);
   player.characterName(playerName);
@@ -26,6 +26,7 @@ function characterBase(player,playerID,playerName,playerRace,playerAvatarPhoto,p
   player.equippedAttackPower(playerEquippedAttackPower);
   player.equippedSpellPower(playerEquippedSpellPower);
   player.equippedWeaponDamage(playerEquippedWeaponDamage);
+  player.baseArmor(playerBaseArmor)
   player.equippedArmor(playerEquippedArmor);
   player.baseBlock(playerBaseBlock);
   player.equippedBlock(playerEquippedBlock);

@@ -1,11 +1,5 @@
 var isGameOn, actionsLeftInTurn, totalTimePerTurn, timeLeftInTurn, 
-t, activePlayer;
-
-function initPreFightVisual(){
-  $('#fight-display').hide();
-  $('#turn-popup-notifier').hide()
-  $('#full-grayed-out-screen').hide()
-}
+t, activePlayer,notActivePlayer, activePlayerAccessor, notActivePlayerAccessor;
 
 function initFight(){
   isGameOn = true;
@@ -27,6 +21,11 @@ function initFight(){
   theCoinWrapper(notActivePlayerAccessor, activePlayerAccessor)
 }
 
+function initPreFightVisual(){
+  $('#fight-display').hide();
+  $('#turn-popup-notifier').hide()
+  $('#full-grayed-out-screen').hide()
+}
 
 function initFightVisual(){
   $('#dot-display-player1').hide()
@@ -40,7 +39,7 @@ function initFightVisual(){
   $('#actions-left-in-turn').text(actionsLeftInTurn+' Actions Left');
   $('#winner-display-turn-board').css('display','none')
   $('#fight-again').hide();
-  $('.player2-avatar-photo').addClass('gray-photo')
+  $('.player'+notActivePlayer+'-avatar-photo').addClass('gray-photo')
 }
 
 function timerStart(){
@@ -86,6 +85,7 @@ function firstTurnNotifier(){
       $('#player'+activePlayer+'-turn-arrow').show()
       $('.player'+activePlayer+'-card').addClass('active-player')
       $("#match-start-sfx")[0].play();
+      clearInterval(popUpTimer);
     }
   }, 1000);
 }

@@ -248,18 +248,47 @@ header{
 }
 
 .gray-photo{
-  opacity: 0.8;
+  opacity: 0.7;
   background-color: #000;
 }
 
-@-webkit-keyframes example {
+#action-display-player1{
+  position:absolute;
+  top:150px;
+  left:39%;
+}
+
+#action-display-player2{
+  position:absolute;
+  top:150px;
+  left:39%;
+}
+
+.display-action-text{
+  position:absolute;
+  text-shadow: 2px 2px 3px black;
+  font-size: 85px;
+  animation-name: display-action-text-motion;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards
+}
+
+@keyframes display-action-text-motion{
+  0%   {top: 0px;}
+  33% {opacity: 1;}
+  66% {top: -90px; opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@-webkit-keyframes active-player {
   0%   {background-color:#e0f0ff;}
   50%  {background-color:#bbebff;}
   100% {background-color:#e0f0ff;}
 }
 
 .active-player{
-  -webkit-animation-name: example; 
+  -webkit-animation-name: active-player; 
   -webkit-animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;

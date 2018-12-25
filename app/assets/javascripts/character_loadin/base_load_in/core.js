@@ -14,7 +14,7 @@ function statPopoverLoadin(headerID,bodyID,player){
              +'Block: '+player.block+'%<br>'
              +'Attack Power: '+player.attackPower+'<br>'
              +'Spell Power: '+player.spellPower+'<br>' 
-             +'Armor: <span id="equipped-armor-player'+player.ID+'">'+player.equippedArmor+'</span><br>'
+             +'Armor: <span id="equipped-armor-player'+player.ID+'">'+player.totalArmor+'</span><br>'
              +'Spirit: '+ player.spirit)
 }
 

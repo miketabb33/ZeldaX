@@ -65,6 +65,9 @@ var Character = {
   equippedWeaponDamage: function(equippedWeaponDamage){
     this.equippedWeaponDamage = equippedWeaponDamage;
   },
+  baseArmor: function(baseArmor){
+    this.baseArmor = baseArmor;
+  },
   equippedArmor: function(equippedArmor){
     this.equippedArmor = equippedArmor;
   },

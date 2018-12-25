@@ -38,8 +38,16 @@ function ifHealthisOverMaxHealthHandler(player){
   }
 } 
 
+function gainManaActuator(player){
+  player.remainingMana += player.spirit
+}
+
 function ifManaisOverMaxManaHandler(player){
   if(player.remainingMana > player.maxMana){
     player.remainingMana = player.maxMana;
   }
+}
+
+function randomNum1to100(){
+  return Math.floor(Math.random() *100+1)
 }

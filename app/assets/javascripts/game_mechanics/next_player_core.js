@@ -1,7 +1,6 @@
 function nextPlayer(){
   if(isGameOn === true){
     dotListenerWrapper()
-    buffListenerWrapper()
     //next player functionality
     $('#player'+activePlayer+'-moves').hide();
     $('.player'+activePlayer+'-card').removeClass('active-player')
@@ -24,11 +23,12 @@ function nextPlayer(){
     $("#clock-sfx")[0].pause();
     $("#clock-sfx")[0].currentTime = 0
     $("#next-player-sfx")[0].play();
+    buffListenerWrapper(activePlayerAccessor)
   }
 }
 
 function playerManaRegen(player){
-  player.remainingMana += player.spirit;
+  gainManaActuator(player)
   ifManaisOverMaxManaHandler(player)
   manaBarUpdater($('#player'+player.ID+'-mana-bar'), player.remainingMana, player.maxMana);
 }
