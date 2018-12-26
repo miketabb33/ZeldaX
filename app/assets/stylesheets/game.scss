@@ -415,7 +415,7 @@ header{
     display: none;
   }
   #fight-display{
-    height: 450px;
+    height: 400px;
   }
   #whos-turn{
     display:none;
@@ -437,7 +437,17 @@ header{
   }
   .card-group{
     position: relative;
-    width:740px;
+    width:730px;
+  }
+  #start-fight-button{
+    position: absolute;
+    top:260px;
+  }
+  #fight-player1-type{
+    display: none;
+  }
+  #fight-player2-type{
+    display: none;
   }
 }
 
