@@ -1,7 +1,7 @@
 //Player Race Options: Human, Dwarf, Night Elf, Gnome, Orc, Undead, Tauren, Troll
 
 var player2ID = "2"
-var player2Name = 'Dark Matter';
+var player2Name = 'Gru';
 var player2Race = 'Orc';
 var player2Class = 'Mage';
 var player2AvatarPhoto = 'images/warrior.png';

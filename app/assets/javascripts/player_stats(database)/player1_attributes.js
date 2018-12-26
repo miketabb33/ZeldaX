@@ -1,7 +1,7 @@
 //Player Race Options: Human, Dwarf, Night Elf, Gnome, Orc, Undead, Tauren, Troll
 
 var player1ID = '1'
-var player1Name = 'Bella';
+var player1Name = 'Arcano';
 var player1Race = 'Human';
 var player1Class = 'Mage';
 var player1AvatarPhoto = 'mage.jpg';

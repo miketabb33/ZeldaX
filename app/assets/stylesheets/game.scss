@@ -394,6 +394,53 @@ header{
   text-align: center;
 }
 
+#if-screen-to-small{
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  #uppermost-container{
+    display:none;
+  }
+  body{
+    background-image: none;
+  }
+  #if-screen-to-small{
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #combat-message-container{
+    display: none;
+  }
+  #fight-display{
+    height: 450px;
+  }
+  #whos-turn{
+    display:none;
+  }
+  #player2-moves{
+    text-align: center;
+  }
+  #player1-moves{
+    text-align: center;
+  }
+  #action-header-title{
+    display: none;
+  }
+  .container{
+    margin: 0;
+  }
+  #uppermost-container{
+    margin-top: -30px;
+  }
+  .card-group{
+    position: relative;
+    width:740px;
+  }
+}
+
 
 @media screen and (max-width: 993px) {
   #action-art-left{
