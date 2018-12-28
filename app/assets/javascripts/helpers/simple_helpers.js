@@ -1,3 +1,31 @@
+//business
+
+function calculatePercentage(numerator, denominator){
+  return numerator/denominator*100;
+}
+
+function ifHealthisOverMaxHealthHandler(player){
+  if(player.remainingHealth > player.maxHealth){
+    player.remainingHealth = player.maxHealth
+  }
+} 
+
+function gainManaActuator(player){
+  player.remainingMana += player.spirit
+}
+
+function ifManaisOverMaxManaHandler(player){
+  if(player.remainingMana > player.maxMana){
+    player.remainingMana = player.maxMana;
+  }
+}
+
+function randomNum1to100(){
+  return Math.floor(Math.random() *100+1)
+}
+
+//visual
+
 function remainingActionsLeftHandler(player){
   if(actionsLeftInTurn === 0 || player.totalMoveCount === $('.ability-disabled-player'+player.ID).length){
     $('#actions-left-in-turn').text('No Actions Left');
@@ -21,33 +49,19 @@ function isManaAbilityAvailable(whoRemainingMana, whoAbilityDisabled, button, ab
 }
 
 function manaBarUpdater(attackerManaBar,attackerRemainingMana, attackerTotalMana){
-  percentageMana = attackerRemainingMana/attackerTotalMana*100;
+  var percentageMana = calculatePercentage(attackerRemainingMana, attackerTotalMana)
   attackerManaBar.css('width', percentageMana+'%');
   attackerManaBar.text(attackerRemainingMana+'/'+attackerTotalMana);
 } 
 
 function healthBarUpdater(receiverHealthBar, receiverRemainingHealth, receiverTotalHealth){
-  percentageHealth = receiverRemainingHealth/receiverTotalHealth* 100; 
+  percentageHealth = calculatePercentage(receiverRemainingHealth, receiverTotalHealth)
   receiverHealthBar.css('width', percentageHealth+'%');
   receiverHealthBar.text(receiverRemainingHealth+'/'+receiverTotalHealth);
 }  
 
-function ifHealthisOverMaxHealthHandler(player){
-  if(player.remainingHealth > player.maxHealth){
-    player.remainingHealth = player.maxHealth
-  }
-} 
-
-function gainManaActuator(player){
-  player.remainingMana += player.spirit
+//sound
+function sfxPlayer(sfx){
+  $("#"+sfx+"-sfx")[0].play();
 }
 
-function ifManaisOverMaxManaHandler(player){
-  if(player.remainingMana > player.maxMana){
-    player.remainingMana = player.maxMana;
-  }
-}
-
-function randomNum1to100(){
-  return Math.floor(Math.random() *100+1)
-}

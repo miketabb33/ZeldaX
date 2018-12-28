@@ -1,4 +1,4 @@
-describe("Actions Core", function(){
+describe("---Actions Core---", function(){
 
   describe("enoughManaChecker()", function(){
     it("should return 'true' when remaining mana is more than the ability mana cost", function(){

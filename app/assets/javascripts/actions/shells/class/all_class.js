@@ -27,7 +27,6 @@ function weaponAttack(button,attackingPlayer, receivingPlayer,ability,sfx){
   });
 }
 
-
 function manaOneHitAttack(button,attackingPlayer, receivingPlayer,ability, damage, sfx){
   button.click(function(){
     if(isGameOn && actionsLeftInTurn > 0){
@@ -53,7 +52,7 @@ function manaOneHitAttack(button,attackingPlayer, receivingPlayer,ability, damag
         ifTurnIsZeroCoinIgnore(activePlayerAccessor)
         ifEndOfGame(attackingPlayer.characterName,receivingPlayer.characterName,$('#'+receivingPlayer.ID+'-death-indicator'))
         healthBarUpdater($('#player'+receivingPlayer.ID+'-health-bar'),receivingPlayer.remainingHealth, receivingPlayer.maxHealth)
-        manaBarUpdater($('#player'+attackingPlayer.ID+'-mana-bar'), attackingPlayer.remainingMana,attackingPlayer.maxMana);
+        manaBarUpdater($('#player'+attackingPlayer.ID+'-mana-bar'),attackingPlayer.remainingMana,attackingPlayer.maxMana);
         //sound
         sfxIsBlockHandler(blocked,sfx)
       }else{
@@ -89,7 +88,7 @@ function manaOneHitAttackWithDot(button,attackingPlayer, receivingPlayer,ability
         ifTurnIsZeroCoinIgnore(activePlayerAccessor)
         ifEndOfGame(attackingPlayer.characterName,receivingPlayer.characterName,$('#'+receivingPlayer.ID+'-death-indicator'))
         healthBarUpdater($('#player'+receivingPlayer.ID+'-health-bar'),receivingPlayer.remainingHealth, receivingPlayer.maxHealth)
-        manaBarUpdater($('#player'+attackingPlayer.ID+'-mana-bar'), attackingPlayer.remainingMana,attackingPlayer.maxMana);
+        manaBarUpdater($('#player'+attackingPlayer.ID+'-mana-bar'),attackingPlayer.remainingMana,attackingPlayer.maxMana);
         //dot visual
         ifBlockedNoDotView(blocked, attackingPlayer, receivingPlayer, '#dot-display-player', ability, dotIcon)
         dotContainerStyleAdjustChecker(receivingPlayer)
@@ -144,7 +143,7 @@ function manaAddArmor(button,attackingPlayer,ability, buffState, buffIcon, sfx){
         anyAvailableActions(activePlayerAccessor);
         ifTurnIsZero();
         ifTurnIsZeroCoinIgnore(activePlayerAccessor)
-        manaBarUpdater($('#player'+attackingPlayer.ID+'-mana-bar'), attackingPlayer.remainingMana,attackingPlayer.maxMana);
+        manaBarUpdater($('#player'+attackingPlayer.ID+'-mana-bar'),attackingPlayer.remainingMana,attackingPlayer.maxMana);
         //buff visual
         dotBuffHotIconHandler(attackingPlayer, '#buff-hot-display-player', ability, buffIcon, ability.name + ' gives ' + ability.armorGain+ ' additional armor | lasts '+ability.turns + ' turns')
         dotContainerStyleAdjustChecker(attackingPlayer) 
@@ -177,7 +176,7 @@ function theCoin(button, attackingPlayer,sfx){
       //visual
       createMessage('The coin gave '+attackingPlayer.characterName +' '+ (attackingPlayer.remainingMana - messageMana)+' mana ',true)
       abilityAvailabilityChecker(activePlayerAccessor)
-      manaBarUpdater($('#player'+attackingPlayer.ID+'-mana-bar'), attackingPlayer.remainingMana,attackingPlayer.maxMana);
+      manaBarUpdater($('#player'+attackingPlayer.ID+'-mana-bar'),attackingPlayer.remainingMana,attackingPlayer.maxMana);
       button.tooltip('dispose')
       button.remove()
       //sound

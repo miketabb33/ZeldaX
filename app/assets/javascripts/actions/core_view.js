@@ -74,10 +74,6 @@ function sfxIsBlockHandler(blocked,sfx){
   blocked ? $("#block-sfx")[0].play() : $("#"+sfx+"-sfx")[0].play() 
 }
 
-function sfxPlayer(sfx){
-  $("#"+sfx+"-sfx")[0].play();
-}
-
 function addArmorGainedToStatPopUp(attackingPlayer,ability, armorBefore){
   $('#equipped-armor-player'+attackingPlayer.ID).html(armorBefore+' + '+ability.armorGain)
 }
@@ -98,6 +94,10 @@ function dotBuffHotIconHandler(player, selector, ability, icon, msg){
     dotBuffIconHover($('.'+icon), msg)
     $(selector+player.ID).show()
   }
+}
+
+function dotBuffIconHover(selector, msg){
+  selector.tooltip({title: msg, placement: "right"}); 
 }
 
 function noIconInContainerHandler(selector,player){

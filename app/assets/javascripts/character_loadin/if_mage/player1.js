@@ -9,7 +9,7 @@ if (player1Class === 'Mage'){
                          player1EquippedAttackPower,player1EquippedSpellPower,
                          player1EquippedWeaponDamage,player1BaseArmor,player1EquippedArmor,player1BaseBlock,
                          player1EquippedBlock)
-
+  
   mageStatBoost(player1)
   derivedStats(player1)
   ifHumanRaceStatBoost(player1)
