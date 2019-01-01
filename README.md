@@ -6,22 +6,32 @@ ZeldaX is a turn based pvp battle simulator. Currently, the 2 player game featur
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+### Prerequisites
+The application uses:
+ruby 2.4.1 
+rails 5.2.2 
+postgres
 
 ### Installing
+Start by navigating to the project in your command line.
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Install the required gems with:
+```
+$ bundler install
+```
+If you dont have bundler installed then install bundler gem with:
 
 ```
-Give the example
+$ gem install bundler
 ```
 
-And repeat
+Next, a database is required to run the server:
+```
+$ rake db:create
+```
 
-```
-until finished
-```
+Now, run the server and play
+$ rails server
 
 End with an example of getting some data out of the system or using it for a little demo
 
@@ -32,7 +42,7 @@ Visit this link to play online:
 https://zeldax.herokuapp.com/
 ```
 
-### How To Play
+## How To Play
 Start by navigating to the project in your command line and running the server
 ```
 $ rails s
