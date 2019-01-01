@@ -20,6 +20,7 @@ function nextPlayer(){
     activePlayerNameDisplay(activePlayerAccessor);
     activePlayerMessanger()
     //sound
+    $("#next-player-sfx")[0].play()
     $("#clock-sfx")[0].pause();
     $("#clock-sfx")[0].currentTime = 0
   }

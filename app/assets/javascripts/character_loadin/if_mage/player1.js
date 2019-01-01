@@ -20,6 +20,7 @@ if (player1Class === 'Mage'){
 
   console.log(player1)
 
+
   $(document).ready(function(){
     player1.actionBar($('#player1-action-bar'),'player1-mana-bar');  
     weaponAttackWrapper(player1,player2)
@@ -27,5 +28,7 @@ if (player1Class === 'Mage'){
     //ifHumanRaceActionLoadIn()
     //ifOrcRaceActionLoadIn(player1, player1Race)
     foodItemAction(player1)
+
+
   })
 }

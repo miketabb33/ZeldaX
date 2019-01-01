@@ -21,10 +21,13 @@ function ifEndOfGame(winner, loser, loserID){
     createMessage(winner+ ' has won!', false);
     $('#turn-board-controls').css('display', 'none');
     $('#winner-display-turn-board').css('display','inline');
-    $('#winner-display-turn-board').html('<h1>'+winner+' has won!</h1>');
+    $('#winner-display-turn-board').html('<h1>'+winner+' <br>has won!</h1>');
     $('#fight-again').show();
     $("#win-sfx")[0].play();
     $("#cheer-sfx")[0].play();
+    $("#player1-moves").hide()
+    $("#player2-moves").hide()  
+    $("#action-header").hide()  
   }
 }
 
