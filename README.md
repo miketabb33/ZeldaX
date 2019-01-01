@@ -8,8 +8,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 The application uses:
-ruby 2.4.1 
-rails 5.2.2 
+ruby 2.4.1,  
+rails 5.2.2,  
 postgres
 
 ### Installing
@@ -31,7 +31,9 @@ $ rake db:create
 ```
 
 Now, run the server and play
+```
 $ rails server
+```
 
 End with an example of getting some data out of the system or using it for a little demo
 
