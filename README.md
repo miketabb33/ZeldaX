@@ -35,7 +35,6 @@ Now, run the server and play
 $ rails server
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
 
 ### Or play online
 Visit this link to play online:
