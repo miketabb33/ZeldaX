@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ZeldaX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Game styles (injected by webpack) -->
+    <link rel="stylesheet" href="css/game.css">
+
+    <!-- jQuery (must load before Bootstrap JS and game scripts) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  </head>
+
+  <body>
+
+    <div id="full-grayed-out-screen"></div>
+    <div class="container" id="uppermost-container">
+      <div id="turn-popup-notifier"></div>
+
+      <!-- Pre-fight display -->
+      <div class="card-group" id="prefight-display">
+        <div class="card player1-card">
+          <div class="player1-avatar-photo">
+            <img src="assets/images/mage.jpg" class="card-img-top" alt="player1 Image">
+          </div>
+          <div class="card-img-overlay">
+            <span class="player1-character-level character-level-design"></span>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><span class="player1-character-name"></span></h4>
+            <p class="card-text">
+              <span class="player1-character-race"></span>
+              <span class="player1-character-class"></span>
+            </p>
+          </div>
+        </div>
+
+        <span id="VS-symbol" class="text-white">VS</span>
+
+        <div class="card player2-card">
+          <div class="player2-avatar-photo">
+            <img src="assets/images/warrior.png" class="card-img-top" alt="player2 Image">
+          </div>
+          <div class="card-img-overlay player2-level-placement">
+            <span class="player2-character-level character-level-design"></span>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><span class="player2-character-name"></span></h4>
+            <p class="card-text">
+              <span class="player2-character-race"></span>
+              <span class="player2-character-class"></span>
+            </p>
+          </div>
+        </div>
+
+        <button type="button" id="start-fight-button" class="btn btn-danger btn-block">Fight!</button>
+      </div>
+
+      <!-- Fight display -->
+      <div class="card-group" id="fight-display">
+
+        <!-- Player 1 card -->
+        <div class="card player1-card">
+          <div class="player1-avatar-photo">
+            <img src="assets/images/mage.jpg" class="card-img-top" alt="player1 Image">
+          </div>
+          <div class="card-img-overlay">
+            <span class="player1-character-level character-level-design"></span>
+            <span id="buff-hot-display-player1"></span>
+            <span id="dot-display-player1"></span>
+            <div id="action-display-player1"></div>
+          </div>
+          <div class="card-body">
+            <div class="stat-info-popover text-info">
+              <i class="fa fa-info-circle" aria-hidden="true" id="player1-stat-info-activator"></i>
+            </div>
+            <div id="player1-stat-info-popover" class="player-stat-info-popover">
+              <div id="player1-stat-popover-header" class="player-stat-popover-header"></div>
+              <div id="player1-stat-popover-body"></div>
+            </div>
+            <h4 class="card-title">
+              <span class="player1-character-name"></span>
+              <span id="player1-death-indicator">(dead)</span>
+            </h4>
+            <p class="card-text" id="fight-player1-type">
+              <span class="player1-character-race"></span>
+              <span class="player1-character-class"></span>
+            </p>
+            Health:
+            <div class="progress">
+              <div class="progress-bar bg-success" id="player1-health-bar"></div>
+            </div>
+            <div id="player1-action-bar"></div>
+          </div>
+        </div>
+
+        <!-- Center console -->
+        <div class="card">
+          <div class="card-header" id="turn-board">
+            <div id="turn-board-controls">
+              <h2 id="whos-turn"></h2>
+              <i class="fas fa-angle-left" id="player1-turn-arrow"></i>
+              <i class="fas fa-angle-right" id="player2-turn-arrow"></i>
+              <h5><span id="actions-left-in-turn"></span></h5>
+              <button type="button" id="end-turn-button" class="btn btn-warning">End Turn</button>
+              <span id="end-turn-timer" class="text-white"></span>
+            </div>
+            <div id="winner-display-turn-board"></div>
+            <h3 id="fight-again">**Refresh Page For Rematch**</h3>
+          </div>
+          <div class="card-body">
+            <div id="action-header">
+              <img src="assets/images/action-art-left.png" id="action-art-left" alt="artL">
+              <span id="action-header-title">Actions</span>
+              <img src="assets/images/action-art-right.png" id="action-art-right" alt="artR">
+            </div>
+            <div id="player1-moves"></div>
+            <div id="player2-moves"></div>
+            <br><br>
+            <div id="combat-message-container">
+              <div id="combat-message-header">Combat Messages</div>
+              <div id="combat-message"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Player 2 card -->
+        <div class="card player2-card" id="player2-card">
+          <div class="player2-avatar-photo">
+            <img src="assets/images/warrior.png" class="card-img-top" alt="player2 Image">
+          </div>
+          <div class="card-img-overlay player2-level-placement">
+            <span class="player2-character-level character-level-design"></span>
+            <span id="buff-hot-display-player2"></span>
+            <span id="dot-display-player2"></span>
+            <div id="action-display-player2"></div>
+          </div>
+          <div class="card-body">
+            <div class="stat-info-popover text-info">
+              <i class="fa fa-info-circle" aria-hidden="true" id="player2-stat-info-activator"></i>
+            </div>
+            <div id="player2-stat-info-popover" class="player-stat-info-popover">
+              <div id="player2-stat-popover-header" class="player-stat-popover-header"></div>
+              <div id="player2-stat-popover-body"></div>
+            </div>
+            <h4 class="card-title">
+              <span class="player2-character-name"></span>
+              <span id="player2-death-indicator">(dead)</span>
+            </h4>
+            <p class="card-text" id="fight-player2-type">
+              <span class="player2-character-race"></span>
+              <span class="player2-character-class"></span>
+            </p>
+            Health:
+            <div class="progress">
+              <div class="progress-bar bg-success" id="player2-health-bar"></div>
+            </div>
+            <div id="player2-action-bar"></div>
+          </div>
+        </div>
+
+      </div><!-- /#fight-display -->
+    </div><!-- /#uppermost-container -->
+
+    <!-- Audio -->
+    <audio src="assets/audio/click.mp3"        id="click-sfx"        preload="auto"></audio>
+    <audio src="assets/audio/swoosh.mp3"        id="next-player-sfx"  preload="auto"></audio>
+    <audio src="assets/audio/attack.mp3"        id="attack-sfx"       preload="auto"></audio>
+    <audio src="assets/audio/fireball.mp3"      id="fireball-sfx"     preload="auto"></audio>
+    <audio src="assets/audio/burn.mp3"          id="burn-sfx"         preload="auto"></audio>
+    <audio src="assets/audio/frost_armor.mp3"   id="frost-armor-sfx"  preload="auto"></audio>
+    <audio src="assets/audio/ice_punch.mp3"     id="ice-punch-sfx"    preload="auto"></audio>
+    <audio src="assets/audio/food.mp3"          id="food-sfx"         preload="auto"></audio>
+    <audio src="assets/audio/the_coin.mp3"      id="the-coin-sfx"     preload="auto"></audio>
+    <audio src="assets/audio/bg_music1.mp3" loop id="bg-music1-sfx"   preload="auto"></audio>
+    <audio src="assets/audio/match_start.mp3"   id="match-start-sfx"  preload="auto"></audio>
+    <audio src="assets/audio/win.mp3"           id="win-sfx"          preload="auto"></audio>
+    <audio src="assets/audio/block.mp3"         id="block-sfx"        preload="auto"></audio>
+    <audio src="assets/audio/tick1.mp3"         id="tick1-sfx"        preload="auto"></audio>
+    <audio src="assets/audio/tick2.mp3"         id="tick2-sfx"        preload="auto"></audio>
+    <audio src="assets/audio/clock.mp3"         id="clock-sfx"        preload="auto"></audio>
+    <audio src="assets/audio/cheer.mp3"         id="cheer-sfx"        preload="auto"></audio>
+
+    <div id="if-screen-to-small">
+      Screen size is too small to play the game. Try turning the device
+      horizontally or play on a larger device.
+    </div>
+
+    <!-- =====================================================================
+         Game scripts — loaded in the same order as the Sprockets manifest.
+         All files share global scope (equivalent to asset pipeline concat).
+         ===================================================================== -->
+
+    <!-- Player stats / data -->
+    <script src="js/player_stats(database)/base_stats.js"></script>
+    <script src="js/player_stats(database)/player1_equipped.js"></script>
+    <script src="js/player_stats(database)/player2_equipped.js"></script>
+    <script src="js/player_stats(database)/player1_attributes.js"></script>
+    <script src="js/player_stats(database)/player2_attributes.js"></script>
+
+    <!-- Character creator -->
+    <script src="js/character_creator/blueprint.js"></script>
+    <script src="js/character_creator/base_creator.js"></script>
+    <script src="js/character_creator/derived_stats.js"></script>
+
+    <!-- Stat modifiers -->
+    <script src="js/stat_modifiers/attack_spell_power/mage.js"></script>
+    <script src="js/stat_modifiers/attack_spell_power/weapon_damage.js"></script>
+    <script src="js/stat_modifiers/class_base_stats.js"></script>
+    <script src="js/stat_modifiers/racial.js"></script>
+
+    <!-- Classes -->
+    <script src="js/classes/mage.js"></script>
+
+    <!-- Items & bag -->
+    <script src="js/items/food.js"></script>
+    <script src="js/bag/player1_bag.js"></script>
+    <script src="js/bag/player2_bag.js"></script>
+
+    <!-- Character load-in -->
+    <script src="js/character_loadin/base_load_in/core.js"></script>
+    <script src="js/character_loadin/base_load_in/shell.js"></script>
+    <script src="js/character_loadin/buttons/class/all_class.js"></script>
+    <script src="js/character_loadin/buttons/class/mage.js"></script>
+    <script src="js/character_loadin/buttons/hover.js"></script>
+    <script src="js/character_loadin/buttons/items/food.js"></script>
+    <script src="js/character_loadin/buttons/racial/human.js"></script>
+    <script src="js/character_loadin/buttons/racial/orc.js"></script>
+    <script src="js/character_loadin/buttons/the_coin.js"></script>
+    <script src="js/character_loadin/if_mage/player1.js"></script>
+    <script src="js/character_loadin/if_mage/player2.js"></script>
+
+    <!-- DOTs / HOTs / Buffs -->
+    <script src="js/dots_hots_buffs/initialize_state/buff.js"></script>
+    <script src="js/dots_hots_buffs/initialize_state/dot.js"></script>
+    <script src="js/dots_hots_buffs/listener_wrapper/buff.js"></script>
+    <script src="js/dots_hots_buffs/listener_wrapper/dot.js"></script>
+
+    <!-- Actions -->
+    <script src="js/actions/core.js"></script>
+    <script src="js/actions/core_view.js"></script>
+    <script src="js/actions/shells/class/all_class.js"></script>
+    <script src="js/actions/shells/class/mage.js"></script>
+    <script src="js/actions/shells/items/food.js"></script>
+
+    <!-- Game mechanics -->
+    <script src="js/game_mechanics/functionality/core.js"></script>
+    <script src="js/game_mechanics/functionality/core_view.js"></script>
+    <script src="js/game_mechanics/functionality/first_turn_noftifier.js"></script>
+    <script src="js/game_mechanics/functionality/initialize.js"></script>
+    <script src="js/game_mechanics/functionality/next_player.js"></script>
+    <script src="js/game_mechanics/functionality/turn_timer.js"></script>
+    <script src="js/game_mechanics/shell.js"></script>
+
+    <!-- Messages & helpers -->
+    <script src="js/message/core.js"></script>
+    <script src="js/helpers/ability_availability_checker.js"></script>
+    <script src="js/helpers/simple_helpers.js"></script>
+
+  </body>
+</html>
